@@ -1,0 +1,151 @@
+* {
+  font-family: INGme, Helvetica, Arial, sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background-image: url("../assets/images/luxa.org-brightness-background.jpg");
+  background-size: cover;
+  background-repeat: repeat;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  width: 100%;
+  background: linear-gradient(90deg, rgba(0, 71, 245, 1) 5%, rgba(0, 71, 245, 1) 56%, rgba(66, 191, 199, 1) 96%);
+}
+
+h1 {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.fa {
+  color: black;
+  display: inline;
+  z-index: 2;
+  opacity: 0.5;
+}
+
+.nav-link {
+  display: inline;
+}
+
+.collapse {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  margin-top: 20px;
+  width: 300px;
+}
+
+.input-group input, .input-group select {
+  width: 100%;
+  padding: 10px 20px 10px 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.input-group .fa {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  color: black;
+  z-index: 2;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons button {
+  width: 100px;
+}
+
+h3 {
+  background: linear-gradient(90deg, rgba(0, 71, 245, 1) 5%, rgba(0, 71, 245, 1) 56%, rgba(66, 191, 199, 1) 96%);
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  color: white;
+
+
+}
+
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.6;
+  position: relative;
+  left: -105%;
+}
+
+table {
+  width: 100%;
+  background-color: var(--bs-body-bg);
+  border-radius: 5px;
+}
+
+p {
+  padding-left: 50px;
+}
+
+td {
+  color: darkslategray;
+}
+
+tr {
+  text-align: left;
+
+}
+
+h3.report-h {
+  margin: 0;
+}
+
+.balance {
+  width: 100%;
+  background-color: var(--bs-body-bg);
+  color: darkslategray;
+  text-align: left;
+  border: 3px rgba(0, 71, 245, 1) solid;
+  border-radius: 15px;
+}
+
+.balance p {
+  padding-left: 50px;
+}
+
+#mySelect {
+
+  font-size: inherit;
+  border: none;
+  outline: none;
+  opacity: 0.8;
+}
+
+.modal {
+  color: darkslategray;
+}
+
+button {
+  float: right;
+}
+
+.description {
+  text-align: justify;
+  background: linear-gradient(90deg, rgba(0, 71, 245, 1) 5%, rgba(0, 71, 245, 1) 56%, rgba(66, 191, 199, 1) 96%);
+  border-radius: 10px;
+}
