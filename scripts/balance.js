@@ -13,6 +13,8 @@ function drawChart() {
 
   var options = {
     title: "Your expence balance from given period",
+    width: "auto",
+    height: "auto",
   };
 
   var chart = new google.visualization.PieChart(

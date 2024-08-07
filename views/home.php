@@ -1,3 +1,11 @@
+<?php
+  session_start();
+  if (isset($_SESSION["logIn"]) && $_SESSION["logIn" ] == true) {
+    header("Location: ./views/home.php");
+  }
+  ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
