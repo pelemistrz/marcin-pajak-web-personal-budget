@@ -1,3 +1,14 @@
+
+<?php
+  session_start();
+  if (isset($_SESSION["loggedId"])) {
+    header("Location:mainPage.php");
+    exit();
+  }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,21 +19,21 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <link rel="stylesheet" href="../styles/regAndLog.css">
+  <link rel="stylesheet" href="./styles/regAndLog.css">
 
 </head>
 
 <body>
-  <form action="" method="">
+  <form action="./scripts/formLogIn.php" method="POST">
     <div class="mb-3 pb-2 input-group">
       <i class="fa fa-solid fa-envelope"></i>
-      <input type=" email" class="form-control" id="inputEmail" placeholder="Email" required>
+      <input type=" email" class="form-control" id="inputEmail" placeholder="Email" name="email" required>
     </div>
     <div class="mb-3 pb-2 input-group">
       <i class="fa fa-lock"></i>
-      <input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+      <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password" required>
     </div>
-    <a href="./home.html" class="btn btn-primary">Log in</a>
+    <input class="btn btn-primary" type="submit" value="Log in">
   </form>
 </body>
 

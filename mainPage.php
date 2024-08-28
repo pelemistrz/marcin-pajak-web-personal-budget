@@ -1,7 +1,7 @@
 <?php
   session_start();
-  if (isset($_SESSION["logIn"]) && $_SESSION["logIn" ] == true) {
-    header("Location: ./views/home.php");
+  if (!isset($_SESSION["loggedId"])) {
+    header("Location: index.php");
   }
   ?>
 
@@ -18,7 +18,7 @@
     type="text/css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <link rel="stylesheet" href="../styles/home.css">
+  <link rel="stylesheet" href="./styles/home.css">
 </head>
 
 <body>
@@ -62,7 +62,9 @@
       </nav>
     </header>
   </div>
-
+<?php
+  echo '! [ <a href="./scripts/logout.php">Wyloguj się!</a> ]</p>';
+?>
   <div class="container">
     <div class="row">
       <div class="col-1"></div>

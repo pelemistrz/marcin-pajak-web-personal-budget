@@ -1,0 +1,12 @@
+{
+    "name": "pelemistrz/personalbudget",
+    "description": "Personal budget for keeping track of your expenses and incomes",
+    "type": "project",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "src/Framework",
+            "App\\": "src/App"
+        }
+    }
+}

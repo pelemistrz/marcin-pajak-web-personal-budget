@@ -1,3 +1,14 @@
+
+<?php
+  //session_start();
+  //if (isset($_SESSION["loggedId"])) {
+  //  header("Location: mainPage.php");
+   // exit();
+ // }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,11 +35,11 @@
       <div class="col-md-10 mx-auto col-lg-5">
         <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
           <div class="form-floating mb-3">
-            <a href="./views/login.html" class="w-100 btn btn-lg btn-primary">
+            <a href="./login.php" class="w-100 btn btn-lg btn-primary">
               Log in
             </a>
           </div>
-          <a class="w-100 btn btn-lg btn-primary" href="./views/register.html">
+          <a class="w-100 btn btn-lg btn-primary" href="./registerPage.php">
             Register</a>
         </form>
       </div>
