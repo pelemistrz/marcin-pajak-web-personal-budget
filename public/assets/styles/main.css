@@ -163,7 +163,7 @@ body {
   width: 100vw;
   height: 100vh;
   margin: 0;
-  background-image: url("../assets/images/luxa.org-brightness-background.jpg");
+  background-image: url("./../images/luxa.org-brightness-background.jpg");
   background-size: cover;
   background-repeat: repeat;
   color: white;
@@ -204,7 +204,7 @@ form {
 
 body {
   margin: 0;
-  background-image: url("../assets/images/luxa.org-brightness-background.jpg");
+  background-image: url("/assets/images/luxa.org-brightness-background.jpg");
   background-size: cover;
   background-repeat: repeat;
   color: white;
