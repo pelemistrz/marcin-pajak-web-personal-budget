@@ -13,11 +13,11 @@
     <div class="col-md-10 mx-auto col-lg-5">
       <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
         <div class="form-floating mb-3">
-          <a href="./login.php" class="w-100 btn btn-lg btn-primary">
+          <a href="./login" class="w-100 btn btn-lg btn-primary">
             Log in
           </a>
         </div>
-        <a class="w-100 btn btn-lg btn-primary" href="./registerPage.php">
+        <a class="w-100 btn btn-lg btn-primary" href="./register">
           Register</a>
       </form>
     </div>

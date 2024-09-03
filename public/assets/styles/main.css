@@ -213,6 +213,22 @@ body {
 .container {
   background: linear-gradient(90deg, rgba(0, 71, 245, 1) 5%, rgba(0, 71, 245, 1) 56%, rgba(66, 191, 199, 1) 96%);
   border-radius: 10px;
+}
 
+.bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
 
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }

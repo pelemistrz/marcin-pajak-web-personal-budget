@@ -2,7 +2,9 @@
     "name": "pelemistrz/personalbudget",
     "description": "Personal budget for keeping track of your expenses and incomes",
     "type": "project",
-    "require": {},
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    },
     "autoload": {
         "psr-4": {
             "Framework\\": "src/Framework",
@@ -11,7 +13,9 @@
         "files": [
             "src/App/Config/Routes.php",
             "src/App/Config/Middleware.php"
-
-        ]
+        ]       
+    },
+    "scripts": {
+        "pb": "php cli.php"
     }
 }
