@@ -32,4 +32,15 @@ class Database {
   public function fetchColum() {
     return $this->stmt->fetchColumn();
   }
+
+  public function find() {
+    return $this->stmt->fetch();
+  }
+
+  public function id() {
+    return $this->connection->lastInsertId();
+  }
+  public function findAll() {
+    return $this->stmt->fetchAll();
+  }
 }

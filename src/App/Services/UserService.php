@@ -23,22 +23,21 @@ class UserService {
 
   public function create(array $formData) {
 
+    $password = password_hash($formData['password'], PASSWORD_BCRYPT, ['cost' => 12]);
+
+
     $this->db->query(
-      "INSERT INTO users(username,password,email) VALUES(:email,:password,:email)",
+      "INSERT INTO users(username,password,email) VALUES(:username,:password,:email)",
       [
+        'username' => $formData['username'],
+        'password' => $password,
         'email' => $formData['email'],
-        'password' => $formData['password'],
-        'username' => 'username'
       ]
     );
 
-    $userId =  $this->db->query(
-      "SELECT id from users where email = :email",
-      [
-        'email' => $formData['email']
-      ]
-    )->fetchColum();
-
+    session_regenerate_id();
+    $userId = $this->db->id();
+    $_SESSION["user"] = $userId;
 
     $this->db->query(
       "INSERT into payment_methods_assigned_to_users (name,id,user_id)
@@ -63,5 +62,26 @@ class UserService {
         'userId' => $userId
       ]
     );
+  }
+
+  public function login(array $formData) {
+    $user = $this->db->query(
+      "SELECT * FROM users WHERE email = :email",
+      ['email' => $formData['email']]
+    )->find();
+
+    $passwordsMatch = password_verify($formData['password'], $user['password'] ?? '');
+
+    if (!$user || !$passwordsMatch) {
+      throw new ValidationException(['password' => ['Invalid credentials']]);
+    }
+
+    session_regenerate_id();
+    $_SESSION["user"] = $user['id'];
+  }
+  public function logout() {
+    unset($_SESSION["user"]);
+    session_destroy();
+    session_regenerate_id();
   }
 }

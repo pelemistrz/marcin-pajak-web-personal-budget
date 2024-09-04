@@ -4,6 +4,8 @@
 
 
 <form action="/register" method="POST">
+  <?php include $this->resolve('partials/_csrf.php'); ?>
+
   <!-- Username -->
   <div class="mb-3 pb-2 input-group">
     <i class="fa fa-user"></i>

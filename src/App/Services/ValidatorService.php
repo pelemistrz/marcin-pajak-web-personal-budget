@@ -46,4 +46,18 @@ class ValidatorService {
       'password' => ['required']
     ]);
   }
+
+  public function validateExpense(array $formData) {
+    $this->validator->validate($formData, [
+      'amount'  => ['required'],
+      'date' => ['required']
+    ]);
+  }
+
+  public function validateIncome(array $formData) {
+    $this->validator->validate($formData, [
+      'amount'  => ['required'],
+      'date' => ['required']
+    ]);
+  }
 }

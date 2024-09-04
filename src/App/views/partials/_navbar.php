@@ -10,23 +10,23 @@
           <ul class="navbar-nav">
             <li class="nav-item">
               <i class="fa fa-solid fa-house"></i>
-              <a class="nav-link" href="./home.html">Home</a>
+              <a class="nav-link" href="./main">Home</a>
             </li>
             <li class="nav-item">
               <i class="fa fa-solid fa-dollar-sign"></i>
-              <a class="nav-link" href="#">Add income</a>
+              <a class="nav-link" href="/income">Add income</a>
             </li>
             <li class="nav-item">
               <i class="fa fa-solid fa-cart-shopping"></i>
-              <a class="nav-link" href="./addExpense.html">Add expense</a>
+              <a class="nav-link" href="/expense">Add expense</a>
             </li>
             <li class="nav-item">
               <i class="fa fa-solid fa-scale-unbalanced"></i>
-              <a class="nav-link" href="./balance.html">Balance</a>
+              <a class="nav-link" href="/balance">Balance</a>
             </li>
             <li class="nav-item">
               <i class="fa fa-solid fa-sign-out"></i>
-              <a class="nav-link" href="../index.html">Log out</a>
+              <a class="nav-link" href="/logout">Log out</a>
             </li>
           </ul>
         </div>
