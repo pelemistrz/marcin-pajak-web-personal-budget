@@ -1,7 +1,7 @@
 <?php include $this->resolve("partials/_header.php"); ?>
 
 <!-- Email -->
-<form action="/login" method="POST">
+<form class="acenter" action="/login" method="POST">
   <?php include $this->resolve('partials/_csrf.php'); ?>
 
   <div class="mb-3 pb-2 input-group">

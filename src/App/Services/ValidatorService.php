@@ -14,6 +14,7 @@ use Framework\Rules\{
   MatchRule,
   LengthMaxRule,
   NumericRule,
+  DateFormatRule
 };
 use Framework\Validator;
 
@@ -30,6 +31,7 @@ class ValidatorService {
     $this->validator->add('match', new MatchRule());
     $this->validator->add('lengthMax', new LengthMaxRule());
     $this->validator->add('numeric', new NumericRule());
+    $this->validator->add('dateFormat', new DateFormatRule());
   }
 
   public function validateRegister(array $formData) {
@@ -49,15 +51,18 @@ class ValidatorService {
 
   public function validateExpense(array $formData) {
     $this->validator->validate($formData, [
-      'amount'  => ['required'],
-      'date' => ['required']
+      'amount'  => ['required', 'numeric'],
+      'date' => ['required', 'dateFormat:Y-m-d'],
+      'comment' => ['lengthMax:100'],
+      'categoryOfExpense' => ['required']
     ]);
   }
 
   public function validateIncome(array $formData) {
     $this->validator->validate($formData, [
-      'amount'  => ['required'],
-      'date' => ['required']
+      'amount'  => ['required', 'numeric'],
+      'date' => ['required', 'dateFormat:Y-m-d'],
+      'comment' => ['lengthMax:100']
     ]);
   }
 }

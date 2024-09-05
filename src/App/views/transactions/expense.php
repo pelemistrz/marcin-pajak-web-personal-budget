@@ -2,10 +2,12 @@
 
 <?php include $this->resolve("partials/_navbar.php"); ?>
 
+
+
 <div class="form">
   <h3>Insert data for expense</h3>
 
-  <form action="/income" method="POST">
+  <form action="/expense" method="POST">
     <?php include $this->resolve('partials/_csrf.php'); ?>
     <!-- Amount -->
     <div class="mb-3 pb-2 input-group">
@@ -29,17 +31,31 @@
       </div>
     <?php endif; ?>
 
-    <!-- Income category-->
+    <!-- Method of payment -->
     <div class="mb-3 pb-2 input-group">
       <i class="fa fa-solid fa-money-bill"></i>
-      <select id="howEarned" name="incomeCategory">
-        <option value="Paycheck" selected>Paycheck</option>
-        <option value="Investmenst">Investmenst</option>
-        <option value="Passive income">Passive income</option>
-        <option value="Another">Another</option>
+      <select id="methodOfPayment" name="methodOfPayment">
+        <?php foreach ($methodsOfPayment as $methodOfPayment) : ?>
+          <option value="<?php echo e($methodOfPayment['name']); ?>">
+            <?php echo e($methodOfPayment['name']); ?>
+          </option>
+        <?php endforeach; ?>
+
       </select>
     </div>
+    <!-- Expense category -->
+    <div class="mb-3 pb-2 input-group">
+      <i class="fa fa-solid fa-cart-shopping"></i>
+      <select id="categoryOfExpense" name="categoryOfExpense">
 
+        <?php foreach ($expensesCategory as $expenseCategory) : ?>
+          <option value="<?php echo e($expenseCategory['name']); ?>">
+            <?php echo e($expenseCategory['name']); ?>
+          </option>
+        <?php endforeach; ?>
+
+      </select>
+    </div>
     <div class="mb-3 pb-2 input-group">
       <i class="fa fa-solid fa-comment"></i>
       <input value="<?php echo e($oldFormData['comment'] ?? ''); ?>" type="text" class="form-control" id="inputDateExpense" placeholder="Comment" name="comment">
@@ -50,7 +66,8 @@
       </div>
     <?php endif; ?>
     <div class="buttons">
-      <button class="btn btn-danger">Cancel</button>
+
+      <a href="/main" class="btn btn-danger">Cancel</a>
       <button type="submit" class="btn btn-success">Add</button>
     </div>
   </form>

@@ -2,12 +2,10 @@
 
 <?php include $this->resolve("partials/_navbar.php"); ?>
 
-
-
 <div class="form">
   <h3>Insert data for expense</h3>
 
-  <form action="/expense" method="POST">
+  <form action="/income" method="POST">
     <?php include $this->resolve('partials/_csrf.php'); ?>
     <!-- Amount -->
     <div class="mb-3 pb-2 input-group">
@@ -31,39 +29,18 @@
       </div>
     <?php endif; ?>
 
-    <!-- Method of payment -->
+    <!-- Income category-->
     <div class="mb-3 pb-2 input-group">
       <i class="fa fa-solid fa-money-bill"></i>
-      <select id="howPaid" name="methodOfPayment">
-        <option value="Cash" selected>Cash</option>
-        <option value="Credit Card">Credit Card</option>
-        <option value="Debit Card">Debit Card</option>
-        <option value="Wire transfer">Wire transfer</option>
+      <select id="howEarned" name="incomeCategory">
+        <?php foreach ($incomesCategory as $incomeCategory) : ?>
+          <option value="<?php echo e($incomeCategory['name']); ?>">
+            <?php echo e($incomeCategory['name']); ?>
+          </option>
+        <?php endforeach; ?>
       </select>
     </div>
-    <!-- Expense category -->
-    <div class="mb-3 pb-2 input-group">
-      <i class="fa fa-solid fa-cart-shopping"></i>
-      <select id="kindOfExpense" name="kindOfExpense">
-        <option value="Food" selected>Food</option>
-        <option value="Housing">Housing</option>
-        <option value="Transport">Transport</option>
-        <option value="Telecommunications">Telecommunications</option>
-        <option value="Healthcare">Healthcare</option>
-        <option value="Clothing">Clothing</option>
-        <option value="Hygiene">Hygiene</option>
-        <option value="Children">Children</option>
-        <option value="Entertainment">Entertainment</option>
-        <option value="Trip">Trip</option>
-        <option value="Training">Training</option>
-        <option value="Books">Books</option>
-        <option value="Savings">Savings</option>
-        <option value="For a golden retirement">For a golden retirement</option>
-        <option value=">Debt repayment">Debt repayment</option>
-        <option value="Donation">Donation</option>
-        <option value="Other expenses">Other expenses</option>
-      </select>
-    </div>
+
     <div class="mb-3 pb-2 input-group">
       <i class="fa fa-solid fa-comment"></i>
       <input value="<?php echo e($oldFormData['comment'] ?? ''); ?>" type="text" class="form-control" id="inputDateExpense" placeholder="Comment" name="comment">
@@ -74,7 +51,7 @@
       </div>
     <?php endif; ?>
     <div class="buttons">
-      <button class="btn btn-danger">Cancel</button>
+      <a href="/main" class="btn btn-danger">Cancel</a>
       <button type="submit" class="btn btn-success">Add</button>
     </div>
   </form>

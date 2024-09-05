@@ -6,8 +6,7 @@ body {
   width: 100vw;
   height: 100vh;
   margin: 0;
-  background-color: blue;
-  /* background-image: url("../assets/images/luxa.org-brightness-background.jpg"); */
+  background-image: url("../images/luxa.org-brightness-background.jpg");
   background-size: cover;
   background-repeat: repeat;
   color: white;
@@ -205,4 +204,8 @@ form {
 .text-red-500 {
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
+.acenter {
+  align-self: center;
 }
