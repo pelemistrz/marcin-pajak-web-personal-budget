@@ -16,8 +16,22 @@ class BalanceController {
   }
 
   public function balanceView() {
-    $startDate = $_GET['s'] ?? date('Y-m') . '-01';
-    $endDate = $_GET['e'] ?? '';
+    $option = $_GET['o'] ?? '';
+
+    if ($option === 'currentMonth' || $option === '') {
+      $startDate = date('Y-m') . '-01';
+      $endDate = '';
+    } else if ($option === 'previousMonth') {
+      $startDate = date('Y-m-d', strtotime(date('Y-m') . " -1 month")) . '-01';
+      $endDate = '';
+    } else if ($option === 'currentYear') {
+      $startDate = date('Y') . '-01-01';
+      $endDate = '';
+    } else if ($option === 'dateRange') {
+
+      $startDate = $_GET['s'] ?? date('Y-m') . '-01';
+      $endDate = $_GET['e'] ?? '';
+    }
 
 
     $expensesSum = $this->transactionService->getUserSumOfExpenses($startDate, $endDate);
@@ -29,6 +43,8 @@ class BalanceController {
     $userExpenses = $this->transactionService->getUserExpenses($startDate, $endDate);
     $userIncomes = $this->transactionService->getUserIncomes($startDate, $endDate);
 
+    $tableExpenses = $this->transactionService->getTableExpenses($startDate, $endDate);
+
     echo $this->view->render(
       "/balance.php",
       [
@@ -36,7 +52,9 @@ class BalanceController {
         'userIncomes' => $userIncomes,
         'expensesSum' => $expensesSum,
         'incomesSum' => $incomesSum,
-        'balance' => $balance
+        'balance' => $balance,
+        'tableExpenses' =>  $tableExpenses,
+        'period' => $option
       ]
     );
   }

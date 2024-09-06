@@ -179,14 +179,14 @@ class TransactionService {
 
     $this->db->query(
       "UPDATE incomes SET income_category_assigned_to_user_id =:income_category_assigned_to_user_id,
-      amount = :amount, date_of_income = :date_of_income, income_comment =:income_comment where id = :id and user_id = userId",
+      amount = :amount, date_of_income = :date_of_income, income_comment =:income_comment where id = :id and user_id = :userId",
       [
         'income_category_assigned_to_user_id' => $IDincome_category_assigned_to_user_id,
         'amount' => $formData['amount'],
         'date_of_income' => $formData['date'],
         'income_comment' => $formData['comment'],
         'id' => $id,
-        'user_id' => $_SESSION["user"]
+        'userId' => $_SESSION["user"]
       ]
     );
   }
@@ -234,5 +234,19 @@ class TransactionService {
       'id' => $id,
       'userId' => $_SESSION["user"]
     ]);
+  }
+
+  public function getTableExpenses($startDate, $endDate) {
+    if ($endDate === "") {
+      $endDate = date("Y-m-d");
+    }
+    return $this->db->query(
+      "SELECT c.name,SUM(e.amount) as amount FROM expenses e, expenses_category_assigned_to_users c WHERE e.user_id = :userId and e.expense_category_assigned_to_user_id = c.id AND date_of_expense > :startDate AND date_of_expense < :endDate GROUP BY(expense_category_assigned_to_user_id)",
+      [
+        'userId' => $_SESSION["user"],
+        'startDate' => $startDate,
+        'endDate' => $endDate
+      ]
+    )->findAll();
   }
 }

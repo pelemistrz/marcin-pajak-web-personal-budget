@@ -9,7 +9,8 @@ use App\Controllers\{
   HomeController,
   AuthController,
   BalanceController,
-  TransactionController
+  TransactionController,
+  ErrorController
 };
 use App\Middleware\{AuthRequiredMiddleware, GuestOnlyMiddleware};
 use App\Controllers\MainController;
@@ -42,4 +43,6 @@ function registerRoutes(App $app) {
 
   // Balance
   $app->get('/balance', [BalanceController::class, 'balanceView'])->add(AuthRequiredMiddleware::class);
+
+  $app->setErrorHandler([ErrorController::class, 'notFound']);
 }

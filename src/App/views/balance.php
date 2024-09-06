@@ -1,5 +1,6 @@
 <?php include $this->resolve("partials/_header.php"); ?>
 
+
 <div class="header">
   <header>
     <h1>
@@ -31,12 +32,16 @@
               <a class="nav-link" href="/logout">Log out</a>
             </li>
             <li class="nav-item ms-5" id="period">
-              <select id="mySelect">
-                <option value="" selected>Choose period</option>
-                <option value="">Current month</a></option>
-                <option value="">Previous month</option>
-                <option value="dateRange">Date range</option>
-              </select>
+              <form id="period" name="period" action="/balance" method="GET">
+                <select name="o" id="mySelect" onchange="myFunction(this.options[this.selectedIndex].value,this.form)">
+                  <option value="" selected>Choose period</option>
+                  <option value="currentMonth">Current month</a></option>
+                  <option value="previousMonth">Previous month</option>
+                  <option value="currentYear">Current year</option>
+                  <option value="dateRange">Date range</option>
+
+                </select>
+              </form>
             </li>
           </ul>
         </div>
@@ -61,10 +66,9 @@
         <h4 class="modal-title fs-5" id="exampleModalLabel">Date from:</h4>
 
         <form action="/balance" method="GET" class="d-flex flex-row">
-
-          <!-- <?php include $this->resolve('partials/_csrf.php'); ?> -->
-
           <div class="mb-3 pb-2 input-group">
+
+            <input value="dateRange" name="o" type="hidden" />
             <!-- <label for="dateFrom">Date from:</label> -->
             <input name="s" id="dateFrom" class="form-control" type="date" value="" placeholder="Date" />
           </div>
@@ -72,11 +76,11 @@
             <!-- <label for="dateTo">Date to:</label> -->
             <input name="e" id="dateTo" class="form-control" type="date" value="" placeholder="Date" />
           </div>
-
           <div>
             <button type="submit" class="btn btn-primary">Ok</button>
           </div>
         </form>
+
 
       </div>
     </div>
@@ -157,28 +161,20 @@
 
                 <button type="submit"><i class="fa-solid fa-trash"></i></button>
               </form>
-
-
-
               </p>
               <hr>
             </td>
           </tr>
         <?php endforeach; ?>
-
         </td>
         </tr>
-
-
-
-
       </table>
     </div>
     <div class="col-1"></div>
   </div>
 </div>
 
-<div class="container mt-5">
+<div class="container mt-5 pt-2">
   <div class="row">
     <div class="col-1"></div>
     <div class="col-10">
@@ -194,18 +190,72 @@
     <div class="col-1"></div>
   </div>
   <div class="row mb-5 mt-5">
+
     <div class="col-1"></div>
     <div class="col-10">
-
-
       <div id="piechart"></div>
-
-
     </div>
     <div class="col-1"></div>
   </div>
 </div>
 
 
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {
+    'packages': ['corechart']
+  });
+  google.charts.setOnLoadCallback(drawChart);
 
-<?php include $this->resolve("partials/_footer.php"); ?>
+  function drawChart() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['Category', 'Amount'],
+
+      <?php
+
+      foreach ($tableExpenses as $exp) {
+        echo "['" . $exp['name'] . "', " . $exp['amount'] . "],";
+      }
+
+      ?>
+
+    ]);
+
+    var options = {
+      title: 'My expenses'
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+    chart.draw(data, options);
+  }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+  $("#mySelect").change(function() {
+    var opval = $(this).val();
+    if (opval == "dateRange") {
+      $("#rangeModal").modal("show");
+    }
+  });
+
+
+  function myFunction(chosen, form) {
+    if (chosen === 'currentMonth' || chosen === 'previousMonth' || chosen === 'currentYear') {
+      form.submit();
+    }
+
+
+  }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+  crossorigin="anonymous"></script>
+
+</body>
+
+</html>

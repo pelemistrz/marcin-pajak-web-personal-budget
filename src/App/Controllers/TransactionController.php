@@ -41,7 +41,7 @@ class TransactionController {
     $userMethodsOfPayment = $this->transactionService->getUserMethodsOfPayment();
 
     if (!$expense) {
-      redirectTo('/main');
+      redirectTo('/balance');
     }
 
     echo $this->view->render("/transactions/editExpense.php", [
@@ -56,12 +56,12 @@ class TransactionController {
     $expense = $this->transactionService->getUserExpense($params['expense']);
 
     if (!$expense) {
-      redirectTo('/main');
+      redirectTo('/balance');
     }
 
     $this->validatorService->validateExpense($_POST);
     $this->transactionService->editExpense($_POST, $expense['id']);
-    redirectTo('/main');
+    redirectTo('/balance');
   }
 
   public function deleteExpense($params) {
@@ -90,7 +90,7 @@ class TransactionController {
     $userIncomeCategory = $this->transactionService->getUserIncomeCategory();
 
     if (!$income) {
-      redirectTo('/main');
+      redirectTo('/balance');
     }
 
     echo $this->view->render("/transactions/editIncome.php", [
@@ -104,12 +104,12 @@ class TransactionController {
     $income = $this->transactionService->getUserIncome($params['income']);
 
     if (!$income) {
-      redirectTo('/main');
+      redirectTo('/balance');
     }
 
     $this->validatorService->validateIncome($_POST);
     $this->transactionService->editIncome($_POST, $income['id']);
-    redirectTo('/main');
+    redirectTo('/balance');
   }
 
   public function deleteIncome(array $params) {

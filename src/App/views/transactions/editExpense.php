@@ -50,9 +50,7 @@
       <select id="categoryOfExpense" name="categoryOfExpense">
 
         <?php foreach ($expensesCategory as $expenseCategory) : ?>
-          <option value="<?php echo e($expenseCategory['name']); ?>" <?php if ($expenseCategory['name'] === $expense['category']) {
-                                                                        echo 'selected';
-                                                                      } ?>>
+          <option value="<?php echo e($expenseCategory['name']); ?>" <?php if ($expenseCategory['name'] === $expense['category']) echo 'selected'; ?>>
             <?php echo e($expenseCategory['name']); ?>
           </option>
         <?php endforeach; ?>
