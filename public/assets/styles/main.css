@@ -158,6 +158,7 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
 }
 
 .btn {
@@ -206,6 +207,6 @@ form {
   color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
-.acenter {
-  align-self: center;
+.loginForm {
+  margin: auto;
 }

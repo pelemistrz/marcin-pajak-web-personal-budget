@@ -93,7 +93,17 @@
   <div class="row">
     <div class="col-1"></div>
     <div class="col-10">
-      <h3>Current month</h3>
+
+      <?php if ($period === 'currentMonth' || $period === ''): ?>
+        <h3>Current month</h3>
+      <?php elseif ($period === 'previousMonth') : ?>
+        <h3>Previous month</h3>
+      <?php elseif ($period === 'currentYear') : ?>
+        <h3>Current year</h3>
+      <?php elseif ($period === 'dateRange') : ?>
+        <h3>Date Range</h3>
+      <?php endif; ?>
+
     </div>
     <div class="col-1"></div>
   </div>
