@@ -1,4 +1,0 @@
-insert into payment_methods_assigned_to_users (name,id,user_id)
-SELECT name, null, 2 from payment_methods_default;
-
-select amount,date_of_income from incomes WHERE user_id = 1 and date_of_income > '2023-12-12' and date_of_income < '2024-05-1';

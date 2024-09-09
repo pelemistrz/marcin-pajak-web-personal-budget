@@ -1,1 +1,0 @@
-SELECT * FROM incomes WHERE amount = 1000;
