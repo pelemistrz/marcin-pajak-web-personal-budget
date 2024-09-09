@@ -227,3 +227,10 @@ form {
   color: blue;
   border: none;
 }
+
+#piechart {
+  height: auto;
+  width: auto;
+  border-radius: 5px;
+
+}

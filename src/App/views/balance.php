@@ -182,8 +182,8 @@
 
   <div class="container mt-5 pt-2">
     <div class="row">
-      <div class="col-1"></div>
-      <div class="col-10">
+      <div class="col-md-1 col-0"></div>
+      <div class="col-md-10 col-12">
         <div class="balance pb-1 pt-2">
           <p>Sum of incomes: <?php echo e($incomesSum['incomesSum']); ?> <br>
             Sum of expenses: <?php echo e($expensesSum['expensesSum']); ?></p>
@@ -193,15 +193,15 @@
           <p>You have to earn more or spend less</p>
         </div>
       </div>
-      <div class="col-1"></div>
+      <div class="col-md-1 col-0"></div>
     </div>
     <div class="row mb-5 mt-5">
 
-      <div class="col-1"></div>
-      <div class="col-10">
-        <div id="piechart"></div>
+      <div class="col-md-1 col-0"></div>
+      <div class="col-md-10 col-12" id="piechart">
+        <div></div>
       </div>
-      <div class="col-1"></div>
+      <div class="col-md-1 col-0"></div>
     </div>
   </div>
 
