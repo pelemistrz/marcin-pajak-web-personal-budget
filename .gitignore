@@ -5,3 +5,5 @@
 *.txt
 .uxf
 .sql
+storage/uploads/*
+!storage/uploads/.gitkeep
