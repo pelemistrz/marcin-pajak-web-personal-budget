@@ -1,9 +1,9 @@
 
 /vendor/
 .env
-.sql
+
 *.txt
 .uxf
-.sql
+
 storage/uploads/*
 !storage/uploads/.gitkeep
