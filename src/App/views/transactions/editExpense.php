@@ -4,7 +4,7 @@
 
 
 <div class="form">
-  <h3>Insert data for expense</h3>
+  <h3>Edit expense</h3>
 
   <form method="POST">
     <?php include $this->resolve('partials/_csrf.php'); ?>

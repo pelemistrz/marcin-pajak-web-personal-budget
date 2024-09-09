@@ -207,6 +207,23 @@ form {
   color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
-.loginForm {
-  margin: auto;
+#formAuth {
+
+  background: linear-gradient(90deg, rgba(0, 71, 245, 1) 5%, rgba(0, 71, 245, 1) 56%, rgba(66, 191, 199, 1) 96%);
+  border-radius: 5%;
+}
+
+.editTran {
+  float: left;
+}
+
+.formDelete {
+  width: 30px;
+  display: inline;
+  float: left;
+}
+
+.formDelete>button {
+  color: blue;
+  border: none;
 }

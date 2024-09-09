@@ -1,7 +1,7 @@
 <?php include $this->resolve("partials/_header.php"); ?>
 
 <!-- Email -->
-<div class="loginForm">
+<div id="formAuth" class="formAuth m-auto p-5">
   <form action="/login" method="POST">
     <?php include $this->resolve('partials/_csrf.php'); ?>
 

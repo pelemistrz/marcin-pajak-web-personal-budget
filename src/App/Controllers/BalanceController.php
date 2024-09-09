@@ -43,6 +43,9 @@ class BalanceController {
     $userExpenses = $this->transactionService->getUserExpenses($startDate, $endDate);
     $userIncomes = $this->transactionService->getUserIncomes($startDate, $endDate);
 
+
+
+
     $tableExpenses = $this->transactionService->getTableExpenses($startDate, $endDate);
 
     echo $this->view->render(

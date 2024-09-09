@@ -10,16 +10,23 @@
       <p class="col-lg-10 fs-4">Work out where your money going. Budgeting is one of the best ways to keep your
         finances on track. This budget planner makes it easy to get started.</p>
     </div>
+
     <div class="col-md-10 mx-auto col-lg-5">
+
       <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
-        <div class="form-floating mb-3">
-          <a href="./login" class="w-100 btn btn-lg btn-primary">
-            Log in
-          </a>
-        </div>
-        <a class="w-100 btn btn-lg btn-primary" href="./register">
+
+
+
+        <a href="./login" class="w-100 btn btn-lg btn-primary mb-3">
+          Log in
+        </a>
+
+
+
+        <a class="w-100 btn btn-lg btn-primary mt-3" href="./register">
           Register</a>
       </form>
+
     </div>
   </div>
 </div>

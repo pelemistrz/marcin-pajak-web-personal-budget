@@ -93,7 +93,7 @@ class TransactionService {
       $endDate = date("Y-m-d");
     }
     $userExpenses = $this->db->query(
-      "SELECT e.id, c.name,e.amount,e.date_of_expense,e.expense_comment,p.name as method FROM expenses e, expenses_category_assigned_to_users c, payment_methods_assigned_to_users p WHERE e.user_id = :userId and e.expense_category_assigned_to_user_id = c.id and e.payment_methods_assigned_to_user_id = p.id AND date_of_expense > :startDate AND date_of_expense < :endDate ",
+      "SELECT e.id, c.name,e.amount,e.date_of_expense,e.expense_comment,p.name as method FROM expenses e, expenses_category_assigned_to_users c, payment_methods_assigned_to_users p WHERE e.user_id = :userId and e.expense_category_assigned_to_user_id = c.id and e.payment_methods_assigned_to_user_id = p.id AND date_of_expense > :startDate AND date_of_expense <= :endDate ",
       [
         'userId' => $_SESSION["user"],
         'startDate' => $startDate,
@@ -108,7 +108,7 @@ class TransactionService {
       $endDate = date("Y-m-d");
     }
     $userIncomes = $this->db->query(
-      "SELECT i.id, c.name,i.amount,i.date_of_income,i.income_comment FROM incomes i, incomes_category_assigned_to_users c WHERE i.user_id = :userId and i.income_category_assigned_to_user_id = c.id AND date_of_income > :startDate AND date_of_income < :endDate",
+      "SELECT i.id, c.name,i.amount,i.date_of_income,i.income_comment FROM incomes i, incomes_category_assigned_to_users c WHERE i.user_id = :userId and i.income_category_assigned_to_user_id = c.id AND date_of_income > :startDate AND date_of_income <= :endDate",
       [
         'userId' => $_SESSION["user"],
         'startDate' => $startDate,
@@ -124,7 +124,7 @@ class TransactionService {
       $endDate = date("Y-m-d");
     }
     $userSumOfExpenses = $this->db->query(
-      "SELECT SUM(e.amount) as expensesSum FROM expenses e, expenses_category_assigned_to_users c, payment_methods_assigned_to_users p WHERE e.user_id = :userId and e.expense_category_assigned_to_user_id = c.id and e.payment_methods_assigned_to_user_id = p.id AND date_of_expense > :startDate AND date_of_expense < :endDate ",
+      "SELECT SUM(e.amount) as expensesSum FROM expenses e, expenses_category_assigned_to_users c, payment_methods_assigned_to_users p WHERE e.user_id = :userId and e.expense_category_assigned_to_user_id = c.id and e.payment_methods_assigned_to_user_id = p.id AND date_of_expense > :startDate AND date_of_expense <= :endDate ",
       [
         'userId' => $_SESSION["user"],
         'startDate' => $startDate,
@@ -139,7 +139,7 @@ class TransactionService {
       $endDate = date("Y-m-d");
     }
     $userSumOfIncomes = $this->db->query(
-      "SELECT SUM(i.amount) as incomesSum FROM incomes i, incomes_category_assigned_to_users c WHERE i.user_id = :userId and i.income_category_assigned_to_user_id = c.id AND date_of_income > :startDate AND date_of_income < :endDate",
+      "SELECT SUM(i.amount) as incomesSum FROM incomes i, incomes_category_assigned_to_users c WHERE i.user_id = :userId and i.income_category_assigned_to_user_id = c.id AND date_of_income > :startDate AND date_of_income <= :endDate",
       [
         'userId' => $_SESSION["user"],
         'startDate' => $startDate,
@@ -241,7 +241,7 @@ class TransactionService {
       $endDate = date("Y-m-d");
     }
     return $this->db->query(
-      "SELECT c.name,SUM(e.amount) as amount FROM expenses e, expenses_category_assigned_to_users c WHERE e.user_id = :userId and e.expense_category_assigned_to_user_id = c.id AND date_of_expense > :startDate AND date_of_expense < :endDate GROUP BY(expense_category_assigned_to_user_id)",
+      "SELECT c.name,SUM(e.amount) as amount FROM expenses e, expenses_category_assigned_to_users c WHERE e.user_id = :userId and e.expense_category_assigned_to_user_id = c.id AND date_of_expense > :startDate AND date_of_expense <= :endDate GROUP BY(expense_category_assigned_to_user_id)",
       [
         'userId' => $_SESSION["user"],
         'startDate' => $startDate,
