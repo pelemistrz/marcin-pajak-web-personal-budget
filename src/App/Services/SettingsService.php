@@ -61,4 +61,14 @@ class SettingsService {
       ]
     );
   }
+  public function editIncomeCategory(array $formData) {
+    $this->db->query(
+      "UPDATE incomes_category_assigned_to_users set name = :newCategoryName where user_id = :userId and id = :categoryId",
+      [
+        'newCategoryName' => $formData['newCategoryName'],
+        'userId' => $_SESSION["user"],
+        'categoryId' => $formData['incomeCategoryId']
+      ]
+    );
+  }
 }

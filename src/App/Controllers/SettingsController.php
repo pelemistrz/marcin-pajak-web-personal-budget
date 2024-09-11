@@ -64,12 +64,13 @@ class SettingsController {
 
     redirectTo("/settings");
   }
-
-
-
-
   public function addIncomeCategory() {
     $this->settingsService->addIncomeCategory($_POST['categoryName']);
+    redirectTo("/settings");
+  }
+
+  public function editIncomeCategory() {
+    $this->settingsService->editIncomeCategory($_POST);
     redirectTo("/settings");
   }
 }

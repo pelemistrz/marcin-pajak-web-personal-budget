@@ -88,19 +88,29 @@
 
 <div id="formIncomesCategory">
 
-  <!-- Button trigger add income category -->
+  <!-- Add income category -->
   <button id="buttonAddIncomeCategory" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
     Add
   </button>
 
-  <!-- Modal Add Income Category -->
   <?php include $this->resolve("modals/addIncomeCategory.php"); ?>
-  <!-- Button trigger delete income category -->
+
+  <!-- Delete income category -->
   <button id="buttonDeleteIncomeCategory" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
     Delete
   </button>
-  <!-- Modal Delete Income Category -->
+
   <?php include $this->resolve("modals/deleteIncomeCategory.php"); ?>
+
+
+  <!-- Edit income category -->
+  <button id="buttonEditIncomeCategory" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Edit
+  </button>
+
+  <?php include $this->resolve("modals/editIncomeCategory.php"); ?>
+
+
 
 
 </div>
@@ -111,22 +121,7 @@
 
 
 
-<!-- <form id="formIncomesCategory" method="POST" action="/settings/editincomescategory">
-  <?php include $this->resolve('partials/_csrf.php'); ?>
-  <input type="hidden" name="_METHOD" value="DELETE" />
-  <fieldset>
-    <?php foreach ($incomesCategory as $incomeCategory) : ?>
-      <div>
-        <label>
-          <input type="radio" name="incomeCategoryId" value=" <?php echo e($incomeCategory['id']); ?>" />
-          <label for=" <?php echo e($incomeCategory['name']); ?>"> <?php echo e($incomeCategory['name']); ?>
-          </label>
-      </div>
-    <?php endforeach; ?>
-  </fieldset>
 
-  <button formaction="/settings/deleteIncomeCategory" class="btn btn-primary" type="submit">Delete</button>
-</form> -->
 
 <!-- 
 

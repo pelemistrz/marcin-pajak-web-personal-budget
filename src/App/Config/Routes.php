@@ -53,8 +53,6 @@ function registerRoutes(App $app) {
   $app->post('/settings/password', [SettingsController::class, 'changePassword'])->add(AuthRequiredMiddleware::class);
 
   $app->post('/settings/addIncomeCategory', [SettingsController::class, 'addIncomeCategory'])->add(AuthRequiredMiddleware::class);
-
-
-
   $app->delete('/settings/deleteincomecategory', [SettingsController::class, 'deleteIncomeCategory'])->add(AuthRequiredMiddleware::class);
+  $app->post('/settings/editincomecategory', [SettingsController::class, 'editIncomeCategory'])->add(AuthRequiredMiddleware::class);
 }

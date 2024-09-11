@@ -21,3 +21,7 @@ $("#buttonAddIncomeCategory").click(function () {
 $("#buttonDeleteIncomeCategory").click(function () {
   $("#deleteIncomeCategory").modal("show");
 });
+
+$("#buttonEditIncomeCategory").click(function () {
+  $("#editIncomeCategory").modal("show");
+});
