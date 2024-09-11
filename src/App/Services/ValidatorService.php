@@ -65,4 +65,16 @@ class ValidatorService {
       'comment' => ['lengthMax:100']
     ]);
   }
+
+  public function validateUserName(array $formData) {
+    $this->validator->validate($formData, [
+      'username' => ['required']
+    ]);
+  }
+
+  public function validateEmail(array $formData) {
+    $this->validator->validate($formData, [
+      'email' => ['required', 'email']
+    ]);
+  }
 }

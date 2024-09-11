@@ -9,4 +9,24 @@ use Framework\Database;
 class SettingsService {
   public function __construct(private Database $db) {
   }
+
+  public function changeUserName(string $userName) {
+    $this->db->query(
+      "UPDATE users set username = :userName where id = :userId",
+      [
+        'userName' => $userName,
+        'userId' => $_SESSION["user"]
+      ]
+    );
+  }
+
+  public function changeEmail(string $email) {
+    $this->db->query(
+      "UPDATE users set email = :email where id = :userId",
+      [
+        'email' => $email,
+        'userId' => $_SESSION["user"]
+      ]
+    );
+  }
 }

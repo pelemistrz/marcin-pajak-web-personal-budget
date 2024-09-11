@@ -21,8 +21,11 @@ function registerRoutes(App $app) {
   $app->get('/main', [MainController::class, 'main'])->add(AuthRequiredMiddleware::class);
   $app->get('/register', [AuthController::class, 'registerView'])->add(GuestOnlyMiddleware::class);
   $app->post('/register', [AuthController::class, 'register'])->add(GuestOnlyMiddleware::class);
+
   $app->get('/login', [AuthController::class, 'loginView'])->add(GuestOnlyMiddleware::class);
   $app->post('/login', [AuthController::class, 'login'])->add(GuestOnlyMiddleware::class);
+
+
   $app->get('/logout', [AuthController::class, 'logout'])->add(AuthRequiredMiddleware::class);
 
   // Expense
@@ -45,4 +48,6 @@ function registerRoutes(App $app) {
 
   //Setting
   $app->get('/settings', [SettingsController::class, 'settingsView'])->add(AuthRequiredMiddleware::class);
+  $app->post('/settings/username', [SettingsController::class, 'changeUserName'])->add(AuthRequiredMiddleware::class);
+  $app->post('/settings/email', [SettingsController::class, 'changeEmail'])->add(AuthRequiredMiddleware::class);
 }
