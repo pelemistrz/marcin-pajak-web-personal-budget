@@ -10,7 +10,8 @@ use App\Controllers\{
   AuthController,
   BalanceController,
   TransactionController,
-  ErrorController
+  ErrorController,
+  SettingsController
 };
 use App\Middleware\{AuthRequiredMiddleware, GuestOnlyMiddleware};
 use App\Controllers\MainController;
@@ -35,14 +36,13 @@ function registerRoutes(App $app) {
   $app->get('/income', [TransactionController::class, 'incomeView'])->add(AuthRequiredMiddleware::class);
   $app->post('/income', [TransactionController::class, 'addIncome'])->add(AuthRequiredMiddleware::class);
   $app->get('/income/{income}', [TransactionController::class, 'editViewIncome'])->add(AuthRequiredMiddleware::class);
-
   $app->post('/income/{income}', [TransactionController::class, 'editIncome'])->add(AuthRequiredMiddleware::class);
   $app->delete('/income/{income}', [TransactionController::class, 'deleteIncome'])->add(AuthRequiredMiddleware::class);
 
-
-
   // Balance
   $app->get('/balance', [BalanceController::class, 'balanceView'])->add(AuthRequiredMiddleware::class);
-
   $app->setErrorHandler([ErrorController::class, 'notFound']);
+
+  //Setting
+  $app->get('/settings', [SettingsController::class, 'settingsView'])->add(AuthRequiredMiddleware::class);
 }
