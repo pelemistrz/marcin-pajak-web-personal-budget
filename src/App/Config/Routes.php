@@ -52,7 +52,13 @@ function registerRoutes(App $app) {
   $app->post('/settings/email', [SettingsController::class, 'changeEmail'])->add(AuthRequiredMiddleware::class);
   $app->post('/settings/password', [SettingsController::class, 'changePassword'])->add(AuthRequiredMiddleware::class);
 
+  //setting incomes
   $app->post('/settings/addIncomeCategory', [SettingsController::class, 'addIncomeCategory'])->add(AuthRequiredMiddleware::class);
   $app->delete('/settings/deleteincomecategory', [SettingsController::class, 'deleteIncomeCategory'])->add(AuthRequiredMiddleware::class);
   $app->post('/settings/editincomecategory', [SettingsController::class, 'editIncomeCategory'])->add(AuthRequiredMiddleware::class);
+
+  //setting expenses
+  $app->post('settings/addexpensecategory', [SettingsController::class, 'addExpenseCategory'])->add(AuthRequiredMiddleware::class);
+  $app->delete('/settings/deleteexpensecategory', [SettingsController::class, 'deleteExpenseCategory'])->add(AuthRequiredMiddleware::class);
+  $app->post('/settings/editexpensecategory', [SettingsController::class, 'editExpenseCategory'])->add(AuthRequiredMiddleware::class);
 }

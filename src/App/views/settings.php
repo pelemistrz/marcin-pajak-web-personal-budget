@@ -81,12 +81,13 @@
   <button class="btn btn-primary" type="submit">Confirm</button>
 </form>
 
-<!-- Edit Incomes Category -->
+
+<!-- Incomes Category -->
 
 <button id="editIncomesCategory"
-  class="btn btn-lg btn-primary mb-3">Edit income categories</button>
+  class="btn btn-lg btn-primary mb-3">Income categories</button>
 
-<div id="formIncomesCategory">
+<div id="buttonsIncomesCategory" class="hidden">
 
   <!-- Add income category -->
   <button id="buttonAddIncomeCategory" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -99,9 +100,7 @@
   <button id="buttonDeleteIncomeCategory" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
     Delete
   </button>
-
   <?php include $this->resolve("modals/deleteIncomeCategory.php"); ?>
-
 
   <!-- Edit income category -->
   <button id="buttonEditIncomeCategory" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -109,13 +108,36 @@
   </button>
 
   <?php include $this->resolve("modals/editIncomeCategory.php"); ?>
-
-
-
-
 </div>
 
+<!-- Expenses Category -->
 
+<button id="editExpensesCategory"
+  class="btn btn-lg btn-primary mb-3">Expenses categories</button>
+
+<div id="buttonsExpensesCategory" class="hidden">
+
+
+  <!-- Add expense category -->
+  <button id="buttonAddExpenseCategory" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Add
+  </button>
+
+  <?php include $this->resolve("modals/addExpenseCategory.php"); ?>
+
+  <!-- Delete expense category -->
+  <button id="buttonDeleteExpenseCategory" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Delete
+  </button>
+  <?php include $this->resolve("modals/deleteExpenseCategory.php"); ?>
+
+  <!-- Edit expense category -->
+  <button id="buttonEditExpenseCategory" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Edit
+  </button>
+
+  <?php include $this->resolve("modals/editExpenseCategory.php"); ?>
+</div>
 
 
 

@@ -67,7 +67,7 @@ class TransactionService {
 
   public function getUserExpenseCategory() {
     $userId = $_SESSION["user"];
-    $usersCategory = $this->db->query("SELECT name FROM expenses_category_assigned_to_users where user_id = :userId ", [
+    $usersCategory = $this->db->query("SELECT id,name FROM expenses_category_assigned_to_users where user_id = :userId ", [
       'userId' => $userId
     ])->findAll();
     return $usersCategory;

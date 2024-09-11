@@ -11,9 +11,13 @@ $("#buttonChangePassword").click(function () {
 });
 
 $("#editIncomesCategory").click(function () {
-  $("#formIncomesCategory").toggle("hidden");
+  $("#buttonsIncomesCategory").toggle("hidden");
 });
 
+$("#editExpensesCategory").click(function () {
+  $("#buttonsExpensesCategory").toggle("hidden");
+});
+//Income
 $("#buttonAddIncomeCategory").click(function () {
   $("#addIncomeCategory").modal("show");
 });
@@ -24,4 +28,15 @@ $("#buttonDeleteIncomeCategory").click(function () {
 
 $("#buttonEditIncomeCategory").click(function () {
   $("#editIncomeCategory").modal("show");
+});
+//Expense
+$("#buttonAddExpenseCategory").click(function () {
+  $("#addExpenseCategory").modal("show");
+});
+$("#buttonDeleteExpenseCategory").click(function () {
+  $("#deleteExpenseCategory").modal("show");
+});
+
+$("#buttonEditExpenseCategory").click(function () {
+  $("#editExpenseCategory").modal("show");
 });

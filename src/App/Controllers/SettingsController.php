@@ -73,4 +73,22 @@ class SettingsController {
     $this->settingsService->editIncomeCategory($_POST);
     redirectTo("/settings");
   }
+  //Expense settings
+  public function addExpenseCategory() {
+    $this->settingsService->addExpenseCategory($_POST['categoryName']);
+    redirectTo("/settings");
+  }
+
+  public function deleteExpenseCategory() {
+
+    // $this->validatorService->validateCategory($_POST);
+    $this->settingsService->deleteExpenseCategory((int) $_POST['categoryId']);
+
+    redirectTo("/settings");
+  }
+
+  public function editExpenseCategory() {
+    $this->settingsService->editExpenseCategory($_POST);
+    redirectTo("/settings");
+  }
 }

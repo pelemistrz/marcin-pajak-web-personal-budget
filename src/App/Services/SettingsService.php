@@ -71,4 +71,35 @@ class SettingsService {
       ]
     );
   }
+  //Expense settings
+  public function addExpenseCategory(string $categoryName) {
+    $this->db->query(
+      "INSERT INTO expenses_category_assigned_to_users(user_id,name) Values (:userId, :categoryName)",
+      [
+        'categoryName' => $categoryName,
+        'userId' => $_SESSION["user"]
+      ]
+    );
+  }
+
+  public function deleteExpenseCategory(int $categoryId) {
+    $this->db->query(
+      "DELETE FROM expenses_category_assigned_to_users  WHERE id = :id AND user_id = :userId",
+      [
+        'id' => $categoryId,
+        'userId' => $_SESSION["user"]
+      ]
+    );
+  }
+
+  public function editExpenseCategory(array $formData) {
+    $this->db->query(
+      "UPDATE expenses_category_assigned_to_users set name = :newCategoryName where user_id = :userId and id = :categoryId",
+      [
+        'newCategoryName' => $formData['newCategoryName'],
+        'userId' => $_SESSION["user"],
+        'categoryId' => $formData['categoryId']
+      ]
+    );
+  }
 }
