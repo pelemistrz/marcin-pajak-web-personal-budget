@@ -3,7 +3,7 @@
 <?php include $this->resolve("partials/_navbar.php"); ?>
 
 <div class="form">
-  <h3>Insert data for expense</h3>
+  <h3>Insert data for income</h3>
 
   <form action="/income" method="POST">
     <?php include $this->resolve('partials/_csrf.php'); ?>

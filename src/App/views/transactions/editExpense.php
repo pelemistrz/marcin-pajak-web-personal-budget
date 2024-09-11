@@ -68,7 +68,7 @@
     <?php endif; ?>
     <div class="buttons">
       <button class="btn btn-danger">Cancel</button>
-      <button type="submit" class="btn btn-success">Add</button>
+      <button type="submit" class="btn btn-success">Edit</button>
     </div>
   </form>
 </div>
