@@ -2,8 +2,6 @@
 
 <?php include $this->resolve("partials/_navbar.php"); ?>
 
-
-
 <div class="form">
   <h3>Insert data for expense</h3>
 

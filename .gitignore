@@ -1,8 +1,11 @@
 
 /vendor/
 .env
-.sql
+
 *.txt
 .uxf
 .sql
 cli.php
+
+storage/uploads/*
+!storage/uploads/.gitkeep
