@@ -117,12 +117,10 @@
 
 <div id="buttonsExpensesCategory" class="hidden">
 
-
   <!-- Add expense category -->
   <button id="buttonAddExpenseCategory" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
     Add
   </button>
-
   <?php include $this->resolve("modals/addExpenseCategory.php"); ?>
 
   <!-- Delete expense category -->
@@ -139,8 +137,32 @@
   <?php include $this->resolve("modals/editExpenseCategory.php"); ?>
 </div>
 
+<!-- Method Payment -->
 
+<button id="editMethodsPayment"
+  class="btn btn-lg btn-primary mb-3">Payment methods</button>
 
+<div id="buttonsMethodsPayment">
+
+  <!-- Add payment method -->
+  <button id="buttonAddPaymentMethod" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Add
+  </button>
+  <?php include $this->resolve("modals/addPaymentMethod.php"); ?>
+
+  <!-- Delete expense category -->
+  <button id="buttonDeletePaymentMethod" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Delete
+  </button>
+  <?php include $this->resolve("modals/deletePaymentMethod.php"); ?>
+
+  <!-- Edit expense category -->
+  <button id="buttonEditPaymentMethod" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Edit
+  </button>
+
+  <?php include $this->resolve("modals/editPaymentMethod.php"); ?>
+</div>
 
 
 

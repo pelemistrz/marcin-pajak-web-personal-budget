@@ -91,4 +91,9 @@ class SettingsController {
     $this->settingsService->editExpenseCategory($_POST);
     redirectTo("/settings");
   }
+  //Payment method
+  public function addPaymentMethod() {
+    $this->settingsService->addPaymentMethod($_POST['paymentMethodName']);
+    redirectTo("/settings");
+  }
 }

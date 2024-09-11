@@ -102,4 +102,14 @@ class SettingsService {
       ]
     );
   }
+  //payment method
+  public function addPaymentMethod($paymentMethodName) {
+    $this->db->query(
+      "INSERT INTO payment_methods_assigned_to_users(user_id,name) Values (:userId, :paymentMethodName)",
+      [
+        'paymentMethodName' => $paymentMethodName,
+        'userId' => $_SESSION["user"]
+      ]
+    );
+  }
 }

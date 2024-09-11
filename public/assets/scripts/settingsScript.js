@@ -17,6 +17,11 @@ $("#editIncomesCategory").click(function () {
 $("#editExpensesCategory").click(function () {
   $("#buttonsExpensesCategory").toggle("hidden");
 });
+
+$("#editMethodsPayment").click(function () {
+  $("#buttonsMethodsPayment").toggle("hidden");
+});
+
 //Income
 $("#buttonAddIncomeCategory").click(function () {
   $("#addIncomeCategory").modal("show");
@@ -39,4 +44,16 @@ $("#buttonDeleteExpenseCategory").click(function () {
 
 $("#buttonEditExpenseCategory").click(function () {
   $("#editExpenseCategory").modal("show");
+});
+
+//Method Payment
+$("#buttonAddPaymentMethod").click(function () {
+  $("#addPaymentMethod").modal("show");
+});
+$("#buttonDeletePaymentMethod").click(function () {
+  $("#deletePaymentMethod").modal("show");
+});
+
+$("#buttonEditPaymentMethod").click(function () {
+  $("#editPaymentMethod").modal("show");
 });

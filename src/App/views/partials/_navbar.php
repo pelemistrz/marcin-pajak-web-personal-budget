@@ -21,11 +21,11 @@
               <a class="nav-link" href="/expense">Add expense</a>
             </li>
             <li class="nav-item">
-              <i class="fa fa-solid fa-wrench"></i>
+              <i class="fa fa-solid fa-scale-unbalanced"></i>
               <a class="nav-link" href="/balance">Balance</a>
             </li>
             <li class="nav-item">
-              <i class="fa fa-solid fa-scale-unbalanced"></i>
+              <i class="fa fa-solid fa-wrench"></i>
               <a class="nav-link" href="/settings">Settings</a>
             </li>
             <li class="nav-item">
