@@ -40,4 +40,10 @@ class SettingsController {
     $this->settingsService->changeEmail($_POST['email']);
     redirectTo("/settings");
   }
+
+  public function changePassword() {
+    $this->validatorService->validatePassword($_POST);
+    $this->settingsService->changePassword($_POST['password']);
+    redirectTo("/settings");
+  }
 }

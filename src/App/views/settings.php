@@ -35,7 +35,6 @@
 
 <form id="formEmail" class="hidden" action="/settings/email" method="POST">
 
-
   <?php include $this->resolve('partials/_csrf.php'); ?>
 
   <div class="mb-3 pb-2 input-group">
@@ -51,8 +50,39 @@
 
 </form>
 
+<!-- Change Password -->
+<button id="buttonChangePassword"
+  class="btn btn-lg btn-primary mb-3">Change password</button>
+<form id="formPassword" class="hidden" action="/settings/password" method="POST">
+
+  <?php include $this->resolve('partials/_csrf.php'); ?>
 
 
+  <div class="mb-3 pb-2 input-group">
+    <i class="fa fa-lock"></i>
+    <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password" required>
+  </div>
+  <?php if (array_key_exists('password', $errors)) : ?>
+    <div class="bg-gray-100 p-2 text-red-500">
+      <?php echo e($errors['password'][0]); ?>
+    </div>
+  <?php endif; ?>
+  <!-- Confirm password -->
+
+  <div class="mb-3 pb-2 input-group">
+    <i class="fa fa-lock"></i>
+    <input type="password" class="form-control" id="repeatPassword" placeholder="Repeat password" name="confirmPassword" required>
+  </div>
+  <?php if (array_key_exists('confirmPassword', $errors)) : ?>
+    <div class="bg-gray-100 mt-2 p-2 text-red-500">
+      <?php echo e($errors['confirmPassword'][0]); ?>
+    </div>
+  <?php endif; ?>
+
+
+  <button class="btn btn-primary" type="submit">Confirm</button>
+
+</form>
 
 
 <!-- 

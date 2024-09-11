@@ -5,3 +5,7 @@ $("#buttonChangeUserName").click(function () {
 $("#buttonChangeEmail").click(function () {
   $("#formEmail").toggle("hidden");
 });
+
+$("#buttonChangePassword").click(function () {
+  $("#formPassword").toggle("hidden");
+});

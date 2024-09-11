@@ -77,4 +77,10 @@ class ValidatorService {
       'email' => ['required', 'email']
     ]);
   }
+  public function validatePassword(array $formData) {
+    $this->validator->validate($formData, [
+      'password' => ['required'],
+      'confirmPassword' => ['required', 'match:password']
+    ]);
+  }
 }
