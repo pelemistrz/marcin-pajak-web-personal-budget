@@ -44,7 +44,7 @@ class SettingsService {
 
   public function deleteIncomeCategory(int $categoryId) {
     $this->db->query(
-      "UPDATE users set password = :password where id = :userId",
+      "DELETE FROM incomes_category_assigned_to_users  WHERE id = :id AND user_id = :userId",
       [
         'id' => $categoryId,
         'userId' => $_SESSION["user"]
