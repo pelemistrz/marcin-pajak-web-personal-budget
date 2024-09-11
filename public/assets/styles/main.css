@@ -242,3 +242,8 @@ form {
 .hidden {
   display: none;
 }
+
+showCategory {
+  background: linear-gradient(90deg, rgba(0, 71, 245, 1) 5%, rgba(0, 71, 245, 1) 56%, rgba(66, 191, 199, 1) 96%);
+  align-text: left;
+}

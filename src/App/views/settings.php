@@ -78,12 +78,55 @@
       <?php echo e($errors['confirmPassword'][0]); ?>
     </div>
   <?php endif; ?>
-
-
   <button class="btn btn-primary" type="submit">Confirm</button>
-
 </form>
 
+<!-- Edit Incomes Category -->
+
+<button id="editIncomesCategory"
+  class="btn btn-lg btn-primary mb-3">Edit income categories</button>
+
+<div id="formIncomesCategory">
+
+  <!-- Button trigger add income category -->
+  <button id="buttonAddIncomeCategory" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Add
+  </button>
+
+  <!-- Modal Add Income Category -->
+  <?php include $this->resolve("modals/addIncomeCategory.php"); ?>
+  <!-- Button trigger delete income category -->
+  <button id="buttonDeleteIncomeCategory" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Delete
+  </button>
+  <!-- Modal Delete Income Category -->
+  <?php include $this->resolve("modals/deleteIncomeCategory.php"); ?>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- <form id="formIncomesCategory" method="POST" action="/settings/editincomescategory">
+  <?php include $this->resolve('partials/_csrf.php'); ?>
+  <input type="hidden" name="_METHOD" value="DELETE" />
+  <fieldset>
+    <?php foreach ($incomesCategory as $incomeCategory) : ?>
+      <div>
+        <label>
+          <input type="radio" name="incomeCategoryId" value=" <?php echo e($incomeCategory['id']); ?>" />
+          <label for=" <?php echo e($incomeCategory['name']); ?>"> <?php echo e($incomeCategory['name']); ?>
+          </label>
+      </div>
+    <?php endforeach; ?>
+  </fieldset>
+
+  <button formaction="/settings/deleteIncomeCategory" class="btn btn-primary" type="submit">Delete</button>
+</form> -->
 
 <!-- 
 
@@ -96,9 +139,15 @@
 
 
 </div> -->
+
+
+
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
+
 <script src="./assets/scripts/settingsScript.js"></script>
+
+
 
 <?php include $this->resolve("partials/_footer.php"); ?>

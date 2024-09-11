@@ -82,7 +82,7 @@ class TransactionService {
 
   public function getUserIncomeCategory() {
     $userId = $_SESSION["user"];
-    $usersIncome = $this->db->query("SELECT name FROM incomes_category_assigned_to_users where user_id = :userId ", [
+    $usersIncome = $this->db->query("SELECT id,name FROM incomes_category_assigned_to_users where user_id = :userId ", [
       'userId' => $userId
     ])->findAll();
     return $usersIncome;

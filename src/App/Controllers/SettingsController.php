@@ -8,6 +8,7 @@ use Framework\TemplateEngine;
 use App\Services\ValidatorService;
 use App\Services\SettingsService;
 use App\Services\UserService;
+use App\Services\TransactionService;
 
 
 class SettingsController {
@@ -15,14 +16,23 @@ class SettingsController {
     private TemplateEngine $view,
     private ValidatorService $validatorService,
     private SettingsService $settingsService,
-    private UserService $userService
-
+    private UserService $userService,
+    private TransactionService $transactionService
   ) {
   }
 
   public function settingsView() {
+    $userExpenseCategory = $this->transactionService->getUserExpenseCategory();
+    $userMethodsOfPayment = $this->transactionService->getUserMethodsOfPayment();
+    $userIncomeCategory = $this->transactionService->getUserIncomeCategory();
+
     echo $this->view->render(
-      template: "/settings.php"
+      "/settings.php",
+      [
+        'expensesCategory' => $userExpenseCategory,
+        'methodsOfPayment' => $userMethodsOfPayment,
+        'incomesCategory' => $userIncomeCategory
+      ]
     );
   }
 
@@ -44,6 +54,22 @@ class SettingsController {
   public function changePassword() {
     $this->validatorService->validatePassword($_POST);
     $this->settingsService->changePassword($_POST['password']);
+    redirectTo("/settings");
+  }
+  public function deleteIncomeCategory() {
+
+    $this->validatorService->validateIncomeCategory($_POST);
+
+    $this->settingsService->deleteIncomeCategory((int) $_POST['incomeCategoryId']);
+
+    redirectTo("/settings");
+  }
+
+
+
+
+  public function addIncomeCategory() {
+    $this->settingsService->addIncomeCategory($_POST['categoryName']);
     redirectTo("/settings");
   }
 }

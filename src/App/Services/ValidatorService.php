@@ -83,4 +83,10 @@ class ValidatorService {
       'confirmPassword' => ['required', 'match:password']
     ]);
   }
+
+  public function validateIncomeCategory(array $formData) {
+    $this->validator->validate($formData, [
+      'incomeCategoryId' => ['required']
+    ]);
+  }
 }

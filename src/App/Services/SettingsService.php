@@ -41,4 +41,24 @@ class SettingsService {
       ]
     );
   }
+
+  public function deleteIncomeCategory(int $categoryId) {
+    $this->db->query(
+      "UPDATE users set password = :password where id = :userId",
+      [
+        'id' => $categoryId,
+        'userId' => $_SESSION["user"]
+      ]
+    );
+  }
+
+  public function addIncomeCategory(string $categoryName) {
+    $this->db->query(
+      "INSERT INTO incomes_category_assigned_to_users(user_id,name) Values (:userId, :categoryName)",
+      [
+        'categoryName' => $categoryName,
+        'userId' => $_SESSION["user"]
+      ]
+    );
+  }
 }

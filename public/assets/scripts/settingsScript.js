@@ -9,3 +9,15 @@ $("#buttonChangeEmail").click(function () {
 $("#buttonChangePassword").click(function () {
   $("#formPassword").toggle("hidden");
 });
+
+$("#editIncomesCategory").click(function () {
+  $("#formIncomesCategory").toggle("hidden");
+});
+
+$("#buttonAddIncomeCategory").click(function () {
+  $("#addIncomeCategory").modal("show");
+});
+
+$("#buttonDeleteIncomeCategory").click(function () {
+  $("#deleteIncomeCategory").modal("show");
+});
