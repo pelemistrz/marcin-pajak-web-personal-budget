@@ -13,18 +13,18 @@
           <div class="mb-3 pb-2 input-group">
             <input value="" type=" text" class="form-control" id="inputCategory" placeholder="New category name" name="newCategoryName" required>
           </div>
-          <fieldset>
-
-
-            <?php foreach ($expensesCategory as $methodOfPayment) : ?>
-              <div>
-                <label>
-                  <input type="radio" name="categoryId" value=" <?php echo e($methodOfPayment['id']); ?>" checked />
-                  <?php echo e($methodOfPayment['name']); ?>
-                </label>
-              </div>
-            <?php endforeach; ?>
-          </fieldset>
+          <div class="mb-3">
+            <fieldset>
+              <?php foreach ($expensesCategory as $methodOfPayment) : ?>
+                <div>
+                  <label>
+                    <input type="radio" name="categoryId" value=" <?php echo e($methodOfPayment['id']); ?>" checked />
+                    <?php echo e($methodOfPayment['name']); ?>
+                  </label>
+                </div>
+              <?php endforeach; ?>
+            </fieldset>
+          </div>
 
           <button class="btn btn-primary" type="submit">Confirm</button>
         </form>
