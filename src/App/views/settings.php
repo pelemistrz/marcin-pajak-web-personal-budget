@@ -165,6 +165,12 @@
         </button>
         <?php include $this->resolve("modals/deletePaymentMethod.php"); ?>
       </div>
+      <button id="deleteAccount"
+        class="btn btn-lg btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete account</button>
+
+      <?php include $this->resolve("modals/deleteAccount.php"); ?>
+
+
 
     </div>
     <div class="col-1"></div>

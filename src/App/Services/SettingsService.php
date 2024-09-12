@@ -139,4 +139,13 @@ class SettingsService {
       ]
     );
   }
+  public function deleteAccount() {
+    $this->db->query(
+      "DELETE FROM users WHERE id = :userId",
+      [
+
+        'userId' => $_SESSION["user"]
+      ]
+    );
+  }
 }

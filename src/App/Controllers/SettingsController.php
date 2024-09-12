@@ -108,4 +108,11 @@ class SettingsController {
     $this->settingsService->editPaymentMethod($_POST);
     redirectTo("/settings");
   }
+  //delete account
+  public function deleteAccount() {
+    $this->settingsService->deleteAccount();
+
+    $this->userService->logout();
+    redirectTo('/');
+  }
 }
