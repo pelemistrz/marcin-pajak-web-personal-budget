@@ -6,23 +6,18 @@
       </div>
       <div class="modal-body">
 
-        <form id="deleteIncomeCategory" method="POST" action="/settings/deleteincomecategory">
-
-          <?php include $this->resolve('partials/_csrf.php'); ?>
-
-          <input type="hidden" name="_METHOD" value="DELETE" />
+        <form id="deletePaymentMethod" method="POST" action="/settings/deletepaymentmethod">
 
           <?php include $this->resolve('partials/_csrf.php'); ?>
           <input type="hidden" name="_METHOD" value="DELETE" />
+
 
           <fieldset>
-
-
-            <?php foreach ($incomesCategory as $expenseCategory) : ?>
+            <?php foreach ($methodsOfPayment as $methodOfPayment) : ?>
               <div>
                 <label>
-                  <input type="radio" name="incomeCategoryId" value=" <?php echo e($expenseCategory['id']); ?>" checked />
-                  <?php echo e($expenseCategory['name']); ?>
+                  <input type="radio" name="methodOfPaymentId" value=" <?php echo e($methodOfPayment['id']); ?>" />
+                  <?php echo e($methodOfPayment['name']); ?>
                 </label>
               </div>
             <?php endforeach; ?>

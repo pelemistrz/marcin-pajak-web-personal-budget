@@ -162,8 +162,14 @@
             <tr>
               <td>
                 <?php echo e($expense['date_of_expense']); ?> <?php echo e($expense['method']); ?> <?php echo e($expense['expense_comment']); ?>
+
+
                 <a class="editTran" href="/expense/<?php echo e($expense['id']); ?>"> <i class="fa-solid fa-pen-to-square"></i>
                 </a>
+
+
+
+
 
                 <form class="formDelete" action="/expense/<?php echo e($expense['id']); ?>" method="POST">
                   <input type="hidden" name="_METHOD" value="DELETE" />

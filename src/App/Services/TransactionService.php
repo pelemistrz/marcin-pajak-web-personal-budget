@@ -74,7 +74,7 @@ class TransactionService {
   }
   public function getUserMethodsOfPayment() {
     $userId = $_SESSION["user"];
-    $userMethodsOfPayment = $this->db->query("SELECT name FROM payment_methods_assigned_to_users where user_id = :userId ", [
+    $userMethodsOfPayment = $this->db->query("SELECT id, name FROM payment_methods_assigned_to_users where user_id = :userId ", [
       'userId' => $userId
     ])->findAll();
     return $userMethodsOfPayment;
@@ -93,7 +93,7 @@ class TransactionService {
       $endDate = date("Y-m-d");
     }
     $userExpenses = $this->db->query(
-      "SELECT e.id, c.name,e.amount,e.date_of_expense,e.expense_comment,p.name as method FROM expenses e, expenses_category_assigned_to_users c, payment_methods_assigned_to_users p WHERE e.user_id = :userId and e.expense_category_assigned_to_user_id = c.id and e.payment_methods_assigned_to_user_id = p.id AND date_of_expense > :startDate AND date_of_expense <= :endDate ",
+      "SELECT e.id, c.name,e.amount,e.date_of_expense,e.expense_comment,p.name as method FROM expenses e left JOIN payment_methods_assigned_to_users p on e.payment_methods_assigned_to_user_id = p.id inner join expenses_category_assigned_to_users c ON e.expense_category_assigned_to_user_id = c.id where date_of_expense > :startDate AND date_of_expense <= :endDate AND e.user_id = :userId",
       [
         'userId' => $_SESSION["user"],
         'startDate' => $startDate,
@@ -124,7 +124,7 @@ class TransactionService {
       $endDate = date("Y-m-d");
     }
     $userSumOfExpenses = $this->db->query(
-      "SELECT SUM(e.amount) as expensesSum FROM expenses e, expenses_category_assigned_to_users c, payment_methods_assigned_to_users p WHERE e.user_id = :userId and e.expense_category_assigned_to_user_id = c.id and e.payment_methods_assigned_to_user_id = p.id AND date_of_expense > :startDate AND date_of_expense <= :endDate ",
+      "SELECT SUM(e.amount) as expensesSum FROM expenses e left JOIN payment_methods_assigned_to_users p on e.payment_methods_assigned_to_user_id = p.id inner join expenses_category_assigned_to_users c ON e.expense_category_assigned_to_user_id = c.id where date_of_expense > :startDate AND date_of_expense <= :endDate AND e.user_id = :userId",
       [
         'userId' => $_SESSION["user"],
         'startDate' => $startDate,
@@ -162,7 +162,7 @@ class TransactionService {
 
   public function getUserExpense(string $id) {
     return $this->db->query(
-      "SELECT e.id, c.name as category,e.amount,e.date_of_expense,e.expense_comment,p.name as paymentMethod FROM expenses e, expenses_category_assigned_to_users c, payment_methods_assigned_to_users p WHERE e.user_id = :userId and e.expense_category_assigned_to_user_id = c.id and e.payment_methods_assigned_to_user_id = p.id and e.id=:id",
+      "SELECT e.id, c.name as category,e.amount,e.date_of_expense,e.expense_comment,p.name as paymentMethod FROM expenses e left JOIN payment_methods_assigned_to_users p ON e.payment_methods_assigned_to_user_id = p.id inner join expenses_category_assigned_to_users c ON e.expense_category_assigned_to_user_id = c.id WHERE e.user_id = :userId and e.id=:id",
       [
         'id' => $id,
         'userId' => $_SESSION["user"]

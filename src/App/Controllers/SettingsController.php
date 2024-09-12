@@ -96,4 +96,9 @@ class SettingsController {
     $this->settingsService->addPaymentMethod($_POST['paymentMethodName']);
     redirectTo("/settings");
   }
+  public function deletePaymentMethod() {
+    $this->settingsService->deletePaymentMethod((int) $_POST['methodOfPaymentId']);
+
+    redirectTo("/settings");
+  }
 }

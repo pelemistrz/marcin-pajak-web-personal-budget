@@ -112,4 +112,20 @@ class SettingsService {
       ]
     );
   }
+  public function deletePaymentMethod(int $methodOfPaymentId) {
+    $this->db->query(
+      "UPDATE expenses set payment_methods_assigned_to_user_id = NULL WHERE payment_methods_assigned_to_user_id = :id AND user_id = :userId",
+      [
+        'id' => $methodOfPaymentId,
+        'userId' => $_SESSION["user"]
+      ]
+    );
+    $this->db->query(
+      "DELETE FROM payment_methods_assigned_to_users  WHERE id = :id AND user_id = :userId",
+      [
+        'id' => $methodOfPaymentId,
+        'userId' => $_SESSION["user"]
+      ]
+    );
+  }
 }

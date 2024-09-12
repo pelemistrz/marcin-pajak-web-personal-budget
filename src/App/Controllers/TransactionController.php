@@ -34,11 +34,16 @@ class TransactionController {
   }
 
   public function editViewExpense(array $params) {
+
+
+
     $expense = $this->transactionService->getUserExpense($params['expense']);
 
     $userExpenseCategory = $this->transactionService->getUserExpenseCategory();
 
     $userMethodsOfPayment = $this->transactionService->getUserMethodsOfPayment();
+
+
 
     if (!$expense) {
       redirectTo('/balance');
