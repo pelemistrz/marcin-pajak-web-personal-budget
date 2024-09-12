@@ -101,4 +101,11 @@ class SettingsController {
 
     redirectTo("/settings");
   }
+
+  public function editPaymentMethod() {
+
+
+    $this->settingsService->editPaymentMethod($_POST);
+    redirectTo("/settings");
+  }
 }

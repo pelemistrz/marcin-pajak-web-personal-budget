@@ -13,11 +13,11 @@
             <input value="" type=" text" class="form-control" id="inputCategory" placeholder="New category name" name="newCategoryName" required>
           </div>
           <fieldset>
-            <?php foreach ($incomesCategory as $expenseCategory) : ?>
+            <?php foreach ($incomesCategory as $methodOfPayment) : ?>
               <div>
                 <label>
-                  <input type="radio" name="incomeCategoryId" value=" <?php echo e($expenseCategory['id']); ?>" checked />
-                  <?php echo e($expenseCategory['name']); ?>
+                  <input type="radio" name="incomeCategoryId" value=" <?php echo e($methodOfPayment['id']); ?>" checked />
+                  <?php echo e($methodOfPayment['name']); ?>
                 </label>
               </div>
             <?php endforeach; ?>

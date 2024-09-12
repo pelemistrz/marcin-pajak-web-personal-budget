@@ -14,11 +14,11 @@
 
 
           <fieldset>
-            <?php foreach ($expensesCategory as $expenseCategory) : ?>
+            <?php foreach ($expensesCategory as $methodOfPayment) : ?>
               <div>
                 <label>
-                  <input type="radio" name="categoryId" value=" <?php echo e($expenseCategory['id']); ?>" checked />
-                  <?php echo e($expenseCategory['name']); ?>
+                  <input type="radio" name="categoryId" value=" <?php echo e($methodOfPayment['id']); ?>" checked />
+                  <?php echo e($methodOfPayment['name']); ?>
                 </label>
               </div>
             <?php endforeach; ?>

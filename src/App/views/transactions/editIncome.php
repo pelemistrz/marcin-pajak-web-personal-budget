@@ -33,12 +33,12 @@
     <div class="mb-3 pb-2 input-group">
       <i class="fa fa-solid fa-money-bill"></i>
       <select id="howEarned" name="incomeCategory">
-        <?php foreach ($incomesCategory as $expenseCategory) : ?>
-          <option value="<?php echo e($expenseCategory['name']); ?>"
-            <?php if ($income['name'] === $expenseCategory['name']) {
+        <?php foreach ($incomesCategory as $methodOfPayment) : ?>
+          <option value="<?php echo e($methodOfPayment['name']); ?>"
+            <?php if ($income['name'] === $methodOfPayment['name']) {
               echo 'selected';
             } ?>>
-            <?php echo e($expenseCategory['name']); ?>
+            <?php echo e($methodOfPayment['name']); ?>
           </option>
         <?php endforeach; ?>
       </select>

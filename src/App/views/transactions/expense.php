@@ -46,9 +46,9 @@
       <i class="fa fa-solid fa-cart-shopping"></i>
       <select id="categoryOfExpense" name="categoryOfExpense">
 
-        <?php foreach ($expensesCategory as $expenseCategory) : ?>
-          <option value="<?php echo e($expenseCategory['name']); ?>">
-            <?php echo e($expenseCategory['name']); ?>
+        <?php foreach ($expensesCategory as $methodOfPayment) : ?>
+          <option value="<?php echo e($methodOfPayment['name']); ?>">
+            <?php echo e($methodOfPayment['name']); ?>
           </option>
         <?php endforeach; ?>
 

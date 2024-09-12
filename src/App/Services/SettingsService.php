@@ -128,4 +128,15 @@ class SettingsService {
       ]
     );
   }
+
+  public function editPaymentMethod(array $formData) {
+    $this->db->query(
+      "UPDATE payment_methods_assigned_to_users set name = :newPaymentMethodName where user_id = :userId and id = :paymentMethodId",
+      [
+        'newPaymentMethodName' => $formData['newPaymentMethodName'],
+        'userId' => $_SESSION["user"],
+        'paymentMethodId' => $formData['paymentMethodId']
+      ]
+    );
+  }
 }
