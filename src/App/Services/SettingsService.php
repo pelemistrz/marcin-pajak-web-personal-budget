@@ -93,12 +93,16 @@ class SettingsService {
   }
 
   public function editExpenseCategory(array $formData) {
+
+
+
     $this->db->query(
-      "UPDATE expenses_category_assigned_to_users set name = :newCategoryName where user_id = :userId and id = :categoryId",
+      "UPDATE expenses_category_assigned_to_users set name = :newCategoryName,transaction_limit = :categoryTransactionLimit where user_id = :userId and id = :categoryId",
       [
-        'newCategoryName' => $formData['newCategoryName'],
+        'newCategoryName' => $formData['categoryName'],
         'userId' => $_SESSION["user"],
-        'categoryId' => $formData['categoryId']
+        'categoryId' => $formData['categoryId'],
+        'categoryTransactionLimit' => $formData['categoryTransactionLimit']
       ]
     );
   }

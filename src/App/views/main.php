@@ -6,7 +6,7 @@
     <div class="col-1"></div>
     <div class="col-10">
       <div class="px-4 py-5 my-5 text-center">
-        <div class="col-lg-6 mx-auto">
+        <div class="col-lg-10 mx-auto">
           <p class="description fs-4 py-3 px-5 m-0">An online budget for home use helps individuals manage personal
             finances
             by

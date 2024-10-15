@@ -57,8 +57,6 @@
   </header>
 </div>
 
-
-
 <!-- Modal -->
 <div class="modal fade" id="rangeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -84,8 +82,6 @@
             <button type="submit" class="btn btn-primary">Ok</button>
           </div>
         </form>
-
-
       </div>
     </div>
   </div>
@@ -127,18 +123,12 @@
           <tr>
             <td>
               <?php echo e($income['date_of_income']); ?> <?php echo e($income['income_comment']); ?>
-
               <a class="editTran" href="/income/<?php echo e($income['id']); ?>"><i class="fa-solid fa-pen-to-square"></i></a>
-
               <form class="formDelete" action="/income/<?php echo e($income['id']); ?>" method="POST">
                 <input type="hidden" name="_METHOD" value="DELETE" />
                 <?php include $this->resolve('partials/_csrf.php'); ?>
-
                 <button class="button-delete" type="submit"><i class="fa-solid fa-trash"></i></button>
-
               </form>
-
-
               <hr>
             </td>
           </tr>
@@ -212,6 +202,10 @@
 
         <div class="col-md-1 col-0"></div>
       </div>
+
+
+
+
 
 
       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>

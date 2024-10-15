@@ -48,6 +48,9 @@ function registerRoutes(App $app) {
 
   //Setting
   $app->get('/settings', [SettingsController::class, 'settingsView'])->add(AuthRequiredMiddleware::class);
+
+
+
   $app->post('/settings/username', [SettingsController::class, 'changeUserName'])->add(AuthRequiredMiddleware::class);
   $app->post('/settings/email', [SettingsController::class, 'changeEmail'])->add(AuthRequiredMiddleware::class);
   $app->post('/settings/password', [SettingsController::class, 'changePassword'])->add(AuthRequiredMiddleware::class);

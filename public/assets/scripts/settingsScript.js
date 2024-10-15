@@ -43,7 +43,19 @@ $("#buttonDeleteExpenseCategory").click(function () {
 });
 
 $("#buttonEditExpenseCategory").click(function () {
-  $("#editExpenseCategory").modal("show");
+  $("#expenseCategories").toggle("hidden");
+});
+
+$(document).ready(function () {
+  $(".editExpenseCategory").on("click", function () {
+    $("#editExpenseCategory").modal("show");
+    let categoryName = $(this).data("category-name");
+    let idCategory = $(this).data("category-id");
+    let categoryLimit = $(this).data("transaction-limit");
+    $(".modal-body #categoryName").val(categoryName);
+    $(".modal-body #category-id").val(idCategory);
+    $(".modal-body #categoryTransactionLimit").val(categoryLimit);
+  });
 });
 
 //Method Payment

@@ -26,6 +26,7 @@ class SettingsController {
     $userMethodsOfPayment = $this->transactionService->getUserMethodsOfPayment();
     $userIncomeCategory = $this->transactionService->getUserIncomeCategory();
 
+
     echo $this->view->render(
       "/settings.php",
       [

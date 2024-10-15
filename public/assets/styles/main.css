@@ -2,12 +2,22 @@
   font-family: INGme, Helvetica, Arial, sans-serif;
 }
 
+/* 
+background-color: #72707d;
+background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+/* background-color: #948e9e; */
+/* background-image: url("https://www.transparenttextures.com/patterns/cubes.png"); */
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
 body {
   width: 100vw;
   height: 100vh;
   margin: 0;
-  background-image: url("../images/luxa.org-brightness-background.jpg");
-  background-size: cover;
+  background-color: #414746;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
   background-repeat: repeat;
   color: white;
   display: flex;
@@ -149,10 +159,21 @@ button {
   float: right;
 }
 
+.backimage {
+  background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+
+}
+
+
 .description {
+  height: 50 vh;
+  width: 100%;
   text-align: justify;
-  background: linear-gradient(90deg, rgba(0, 71, 245, 1) 5%, rgba(0, 71, 245, 1) 56%, rgba(66, 191, 199, 1) 96%);
+  background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
   border-radius: 10px;
+  color: black;
 }
 
 #description {
@@ -251,7 +272,7 @@ form {
 
 showCategory {
   background: linear-gradient(90deg, rgba(0, 71, 245, 1) 5%, rgba(0, 71, 245, 1) 56%, rgba(66, 191, 199, 1) 96%);
-  align-text: left;
+
 }
 
 #formUserName, #formEmail, #formPassword {
@@ -262,4 +283,8 @@ showCategory {
 #buttonsIncomesCategory, #buttonsExpensesCategory, #buttonsMethodsPayment {
   width: 60%;
   margin: auto;
+}
+
+#mainForm {
+  height: 100%;
 }
