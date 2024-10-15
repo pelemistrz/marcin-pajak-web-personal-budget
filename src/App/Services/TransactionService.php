@@ -67,7 +67,7 @@ class TransactionService {
 
   public function getUserExpenseCategory() {
     $userId = $_SESSION["user"];
-    $usersCategory = $this->db->query("SELECT id,name FROM expenses_category_assigned_to_users where user_id = :userId ", [
+    $usersCategory = $this->db->query("SELECT id,name,transaction_limit FROM expenses_category_assigned_to_users where user_id = :userId ", [
       'userId' => $userId
     ])->findAll();
     return $usersCategory;
@@ -248,5 +248,25 @@ class TransactionService {
         'endDate' => $endDate
       ]
     )->findAll();
+  }
+
+  public function getLimitCategory($categoryId) {
+    return $this->db->query("SELECT transaction_limit from expenses_category_assigned_to_users where id = :categoryId ", [
+      "categoryId" => $categoryId
+    ])->fetchColum();
+  }
+
+  public function getTransactionSum($categoryId, $month, $year) {
+
+    return $this->db->query(
+      "
+      SELECT sum(amount) FROM `expenses` WHERE expense_category_assigned_to_user_id =:categoryId and YEAR(date_of_expense) = :year AND MONTH(date_of_expense) = :month",
+      [
+        'categoryId' => $categoryId,
+        'month' => $month,
+        'year' => $year
+      ]
+
+    )->fetchColum();
   }
 }

@@ -10,7 +10,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
-        <form action="/settings/deleteaccount" method="POST">
+        <form action="/settings/deleteaccount" method="POST" class="w-100">
           <?php include $this->resolve('partials/_csrf.php'); ?>
           <input type="hidden" name="_METHOD" value="DELETE" />
 

@@ -34,6 +34,8 @@ function registerRoutes(App $app) {
   $app->get('/expense/{expense}', [TransactionController::class, 'editViewExpense'])->add(AuthRequiredMiddleware::class);
   $app->post('/expense/{expense}', [TransactionController::class, 'editExpense'])->add(AuthRequiredMiddleware::class);
   $app->delete('/expense/{expense}', [TransactionController::class, 'deleteExpense'])->add(AuthRequiredMiddleware::class);
+  $app->get('/expense/limit/{category}', [TransactionController::class, 'getLimitCategory']);
+  $app->get('/expense/transaction/sum', [TransactionController::class, 'getTransactionSum']);
 
   //Income
   $app->get('/income', [TransactionController::class, 'incomeView'])->add(AuthRequiredMiddleware::class);
@@ -48,6 +50,9 @@ function registerRoutes(App $app) {
 
   //Setting
   $app->get('/settings', [SettingsController::class, 'settingsView'])->add(AuthRequiredMiddleware::class);
+
+
+
   $app->post('/settings/username', [SettingsController::class, 'changeUserName'])->add(AuthRequiredMiddleware::class);
   $app->post('/settings/email', [SettingsController::class, 'changeEmail'])->add(AuthRequiredMiddleware::class);
   $app->post('/settings/password', [SettingsController::class, 'changePassword'])->add(AuthRequiredMiddleware::class);
