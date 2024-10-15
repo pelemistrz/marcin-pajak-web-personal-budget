@@ -10,6 +10,19 @@ const getLimit = async (categoryId) => {
   }
 };
 
+const getSumOfCategory = async (date, categoryId) => {
+  try {
+    let res = await fetch(
+      `${API}/expense/transaction/sum?i=${categoryId}&d=${date}`
+    );
+
+    let sum = await res.json();
+    return sum;
+  } catch (e) {
+    console.log("Error", e);
+  }
+};
+
 $(document).ready(function () {
   $(".editExpenseCategory").on("click", function () {
     $("#editExpenseCategory").modal("show");
@@ -42,11 +55,7 @@ $("#categoryOfExpense").change(async function () {
 
   if (date) {
     try {
-      let res = await fetch(
-        `${API}/expense/transaction/sum?i=${categoryId}&d=${date}`
-      );
-
-      let sum = await res.json();
+      let sum = await getSumOfCategory(date, categoryId);
       let answerSum =
         sum === 0
           ? "You did not spend any money in this month"
@@ -67,11 +76,7 @@ $("#dataOfTransaction").change(async function () {
 
   if (categoryId !== undefined && date !== "") {
     try {
-      let res = await fetch(
-        `${API}/expense/transaction/sum?i=${categoryId}&d=${date}`
-      );
-
-      let sum = await res.json();
+      let sum = await getSumOfCategory(date, categoryId);
 
       let answer =
         sum === 0
@@ -96,13 +101,16 @@ $("#dataOfTransaction,#categoryOfExpense, #inputAmountExpense").on(
 
     if (date !== "" && categoryId !== undefined && amount !== "") {
       try {
-        let res = await fetch(
-          `${API}/expense/transaction/sum?i=${categoryId}&d=${date}`
-        );
-
-        let sum = await res.json();
+        let sum = await getSumOfCategory(date, categoryId);
 
         let limit = await getLimit(categoryId);
+        let balance = limit - amount - sum;
+        console.log(balance);
+        if (balance < 0) {
+          $("#allInfo").addClass("text-danger");
+        } else {
+          $("#allInfo").removeClass("text-danger");
+        }
 
         let leftAnswer = `Limit balance after operation ${
           limit - amount - sum

@@ -92,7 +92,7 @@
 
 
 
-    <div class="col-5 text-secondary d-flex flex-column justify-content-around pt-5 ">
+    <div id="allInfo" class="col-5 text-secondary d-flex flex-column justify-content-around pt-5 ">
       <div class="limitInfo">
         <p class="h4 p-0">Limit Info</p> <span id="limitInfo">Category requried</span>
       </div>
@@ -102,7 +102,6 @@
       <div class="limitInfo">
         <p class="h4 p-0">Cash left</p> <span id="cashLeft">category,date & amount required</span>
       </div>
-
 
     </div>
     <div class="col-1"></div>
