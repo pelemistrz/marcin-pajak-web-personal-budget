@@ -50,7 +50,7 @@
         <?php echo e($errors['comment'][0]); ?>
       </div>
     <?php endif; ?>
-    <div class="buttons">
+    <div class="w-100 d-flex justify-content-end">
       <a href="/main" class="btn btn-danger">Cancel</a>
       <button type="submit" class="btn btn-success">Add</button>
     </div>

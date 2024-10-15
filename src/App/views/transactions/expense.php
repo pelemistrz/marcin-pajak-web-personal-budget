@@ -82,16 +82,13 @@
             <?php endif; ?>
           </div>
           <!-- Buttons -->
-          <div class="buttons">
+          <div class="w-100 d-flex justify-content-end">
             <a href="/main" class="btn btn-danger">Cancel</a>
             <button type="submit" class="btn btn-success">Add</button>
           </div>
         </form>
       </div>
     </div>
-
-
-
     <div id="allInfo" class="col-5 text-secondary d-flex flex-column justify-content-around pt-5 ">
       <div class="limitInfo">
         <p class="h4 p-0">Limit Info</p> <span id="limitInfo">Category requried</span>
