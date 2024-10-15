@@ -28,7 +28,7 @@
           <!-- Date -->
 
           <div class="mb-3 pb-2 input-group">
-            <input value="<?php echo e($oldFormData['date'] ?? ''); ?>" id="dateExpense" class="form-control" type="date" value="" placeholder="Date" name="date" />
+            <input id="dataOfTransaction" value="<?php echo e($oldFormData['date'] ?? ''); ?>" id="dateExpense" class="form-control" type="date" value="" placeholder="Date" name="date" />
           </div>
           <?php if (array_key_exists('date', $errors)) : ?>
             <div class="bg-gray-100 mt-2 p-2 text-red-500">
@@ -53,8 +53,11 @@
           <div class="mb-3 pb-2 input-group">
             <select class="form-select" id="categoryOfExpense" name="categoryOfExpense" required>
               <option selected disabled>Choose category </option>
+
               <?php foreach ($expensesCategory as $expenseCategory) : ?>
-                <option value="<?php echo e($expenseCategory['name']); ?>">
+
+                <option data-category-id="<?php echo ($expenseCategory['id']); ?>" value="<?php echo e($expenseCategory['name']); ?>">
+
                   <?php echo e($expenseCategory['name']); ?>
                 </option>
               <?php endforeach; ?>
@@ -64,7 +67,6 @@
 
 
           <!-- comment -->
-
           <div class="mb-3 pb-2 input-group">
             <span class="input-group-text" id="basic-addon1">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
@@ -72,13 +74,13 @@
               </svg>
             </span>
             <input value="<?php echo e($oldFormData['comment'] ?? ''); ?>" type="text" class="form-control" id="inputDateExpense" placeholder="Comment optional" name="comment">
-          </div>
-          <?php if (array_key_exists('comment', $errors)) : ?>
-            <div class="bg-gray-100 mt-2 p-2 text-red-500">
-              <?php echo e($errors['comment'][0]); ?>
-            </div>
-          <?php endif; ?>
 
+            <?php if (array_key_exists('comment', $errors)) : ?>
+              <div class="bg-gray-100 mt-2 p-2 text-red-500">
+                <?php echo e($errors['comment'][0]); ?>
+              </div>
+            <?php endif; ?>
+          </div>
           <!-- Buttons -->
           <div class="buttons">
             <a href="/main" class="btn btn-danger">Cancel</a>
@@ -90,10 +92,16 @@
 
 
 
-    <div class="col-5">
-      <div>Limit dla tej transacji to </div>
-
-
+    <div class="col-5 text-secondary d-flex flex-column justify-content-around pt-5 ">
+      <div class="limitInfo">
+        <p class="h4 p-0">Limit Info</p> <span id="limitInfo">Category requried</span>
+      </div>
+      <div class="limitInfo">
+        <p class="h4 p-0">Limit value</p> <span id="limitValue">Category and date required</span>
+      </div>
+      <div class="limitInfo">
+        <p class="h4 p-0">Cash left</p> <span id="cashLeft">category,date & amount required</span>
+      </div>
 
 
     </div>

@@ -2,13 +2,7 @@
   font-family: INGme, Helvetica, Arial, sans-serif;
 }
 
-/* 
-background-color: #72707d;
-background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
-This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-/* background-color: #948e9e; */
-/* background-image: url("https://www.transparenttextures.com/patterns/cubes.png"); */
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
 
 body {
   width: 100vw;
@@ -287,4 +281,9 @@ showCategory {
 
 #mainForm {
   height: 100%;
+}
+
+.limitInfo {
+  height: 30%;
+
 }

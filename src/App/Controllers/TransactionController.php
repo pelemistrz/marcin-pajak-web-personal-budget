@@ -7,6 +7,7 @@ namespace App\Controllers;
 use App\Services\TransactionService;
 use App\Services\ValidatorService;
 use Framework\TemplateEngine;
+use DateTime;
 
 class TransactionController {
   public function __construct(
@@ -110,5 +111,24 @@ class TransactionController {
   public function deleteIncome(array $params) {
     $this->transactionService->deleteIncome((int) $params['income']);
     redirectTo('/balance');
+  }
+
+  public function getLimitCategory(array $params) {
+    $limit = $this->transactionService->getLimitCategory($params['category']);
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode($limit, JSON_UNESCAPED_UNICODE);
+  }
+
+  public function getTransactionSum() {
+    $categoryId = $_GET['i'];
+    $date = new DateTime($_GET['d']);
+
+
+    $month = $date->format('m');
+    $year = $date->format('Y');
+
+    $sumOfExpensesInGivenCategory = (int) $this->transactionService->getTransactionSum($categoryId, $month, $year);
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode($sumOfExpensesInGivenCategory, JSON_UNESCAPED_UNICODE);
   }
 }

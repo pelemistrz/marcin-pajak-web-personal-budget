@@ -249,4 +249,24 @@ class TransactionService {
       ]
     )->findAll();
   }
+
+  public function getLimitCategory($categoryId) {
+    return $this->db->query("SELECT transaction_limit from expenses_category_assigned_to_users where id = :categoryId ", [
+      "categoryId" => $categoryId
+    ])->fetchColum();
+  }
+
+  public function getTransactionSum($categoryId, $month, $year) {
+
+    return $this->db->query(
+      "
+      SELECT sum(amount) FROM `expenses` WHERE expense_category_assigned_to_user_id =:categoryId and YEAR(date_of_expense) = :year AND MONTH(date_of_expense) = :month",
+      [
+        'categoryId' => $categoryId,
+        'month' => $month,
+        'year' => $year
+      ]
+
+    )->fetchColum();
+  }
 }
