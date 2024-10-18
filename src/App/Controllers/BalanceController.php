@@ -22,8 +22,8 @@ class BalanceController {
       $startDate = date('Y-m') . '-01';
       $endDate = '';
     } else if ($option === 'previousMonth') {
-      $startDate = date('Y-m-d', strtotime(date('Y-m') . " -1 month")) . '-01';
-      $endDate = '';
+      $startDate = date('Y-m-d', strtotime('first day of previous month'));
+      $endDate = date('Y-m-d', strtotime('last day of previous month'));
     } else if ($option === 'currentYear') {
       $startDate = date('Y') . '-01-01';
       $endDate = '';

@@ -1,4 +1,5 @@
-const API = "http://personalbudget.local";
+// const API = "http://personalbudget.local";
+const API = "https://budget.marcin-pajak.profesjonalnyprogramista.pl";
 
 const getLimit = async (categoryId) => {
   try {

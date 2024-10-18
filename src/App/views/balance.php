@@ -69,7 +69,6 @@
 
         <form action="/balance" method="GET" class="d-flex flex-row">
           <div class="mb-3 pb-2 input-group">
-
             <input value="dateRange" name="o" type="hidden" />
             <!-- <label for="dateFrom">Date from:</label> -->
             <input name="s" id="dateFrom" class="form-control" type="date" value="" placeholder="Date" />
@@ -161,10 +160,8 @@
               <form class="formDelete" action="/expense/<?php echo e($expense['id']); ?>" method="POST">
                 <input type="hidden" name="_METHOD" value="DELETE" />
                 <?php include $this->resolve('partials/_csrf.php'); ?>
-
                 <button type="submit"><i class="fa-solid fa-trash"></i></button>
               </form>
-
               <hr>
             </td>
           </tr>

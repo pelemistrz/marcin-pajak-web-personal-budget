@@ -9,3 +9,6 @@ cli.php
 
 storage/uploads/*
 !storage/uploads/.gitkeep
+.gitignore
+cli.php
+database.sql
